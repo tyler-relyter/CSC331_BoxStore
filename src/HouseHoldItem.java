@@ -1,3 +1,3 @@
-public class HouseHoldItems {
+public class HouseHoldItem {
 
 }
