@@ -1,1 +1,90 @@
+public class StoreItem {
+
+    private String name;
+    private double price;
+    private String department;
+    private int stockQuantity;
+    private String sku; // Stock Keeping Unit
+
+    public StoreItem(String name, double price, String department, int stockQuantity, String sku) {
+        this.name = name;
+        this.price = price;
+        this.department = department;
+        this.stockQuantity = stockQuantity;
+        this.sku = sku;
+    }
+
+    // no-argument constructor
+    public StoreItem() {
+        this.name = "";
+        this.price = 0.0;
+        this.department = "";
+        this.stockQuantity = 0;
+        this.sku = "";
+    }
+
+    // Getters/Accessors
+
+    /**
+     * Get the name of the store item.
+     * @return name String representing the name of the item.
+     */
+    public String getName() { return name; }
+
+    /**
+     * Get the price of the store item.
+     * @return price double representing the price of the item.
+     */
+    public double getPrice() { return price; }
+
+    /**
+     * Get the department of the store item.
+     * @return department String representing the department of the item.
+     */
+    public String getDepartment() { return department; }
+
+    /**
+     * Get the stock quantity of the store item.
+     * @return stockQuantity int representing the stock quantity of the item.
+     */
+    public int getStockQuantity() { return stockQuantity; }
+
+    /**
+     * Get the SKU of the store item.
+     * @return sku String representing the SKU of the item.
+     */
+    public String getSku() { return sku; }
+
+    // Setters/Mutators
+
+    /**
+     * Set the name of the store item.
+     * @param name String representing the new name of the item.
+     */
+    public void setName(String name) { this.name = name; }
+
+    /**
+     * Set the price of the store item.
+     * @param price double representing the new price of the item.
+     */
+    public void setPrice(double price) { this.price = price; }
+
+    /**
+     * Set the department of the store item.
+     * @param department String representing the new department of the item.
+     */
+    public void setDepartment(String department) { this.department = department; }
+
+    /**
+     * Set the stock quantity of the store item.
+     * @param stockQuantity int representing the new stock quantity of the item.
+     */
+    public void setStockQuantity(int stockQuantity) { this.stockQuantity = stockQuantity; }
+
+    /**
+     * Set the SKU of the store item.
+     * @param sku String representing the new SKU of the item.
+     */
+    public void setSku(String sku) { this.sku = sku; }
+}
 
