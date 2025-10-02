@@ -1,3 +1,3 @@
-public class ElectronicItem {
+public class ElectronicsItem {
    
 }
