@@ -1,9 +1,9 @@
-public class Fruit extends FoodItems{
+public class Fruit extends FoodItem{
 
     private String Sweet;
 
-    public Fruit(String Color, String Shape, String Size, String Texture, String Name, String Taste, double Price) {
-        super(Color, Shape, Size, Texture, Name, Taste, Price);
+    public Fruit(String name, double price, String department, int stockQuantity, String sku, String Color, String Size, String Texture, String Taste, String Sweet) {
+        super(name, price, department, stockQuantity, sku, Color, Size, Texture, Taste);
         this.Sweet = Sweet;
     }
 

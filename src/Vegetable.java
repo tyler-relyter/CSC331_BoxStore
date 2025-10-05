@@ -1,9 +1,9 @@
-public class Vegetable extends FoodItems {
+public class Vegetable extends FoodItem {
 
     private String Root;
 
-    public Vegetable(String Root, String Color, String Shape, String Size, String Texture, String Name, String Taste, double Price) {
-        super(Color, Shape, Size, Texture, Name, Taste, Price);
+    public Vegetable(String name, double price, String department, int stockQuantity, String sku, String Color, String Size, String Texture, String Taste, String Root) {
+        super(name, price, department, stockQuantity, sku, Color, Size, Texture, Taste);
         this.Root = Root;
     }
 
@@ -21,7 +21,7 @@ public class Vegetable extends FoodItems {
             setRoot("not a rooted vegetable");
         }
         else{
-            setRoot("Broccoli");
+            setRoot("is a Rooted vegetable");
             }
 
         }
