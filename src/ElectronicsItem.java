@@ -13,33 +13,18 @@ public class ElectronicsItem extends StoreItem {
     }
 
     // Getters
-    public String getBrand() {
-        return brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public int getWarrantyPeriod() {
-        return warrantyPeriod;
-    }
+    public String getBrand() { return brand; }
+    public String getModel() { return model; }
+    public int getWarrantyPeriod() { return warrantyPeriod; }
 
     // Setters
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public void setWarrantyPeriod(int warrantyPeriod) {
-        this.warrantyPeriod = warrantyPeriod;
-    }
+    public void setBrand(String brand) { this.brand = brand; }
+    public void setModel(String model) { this.model = model; }
+    public void setWarrantyPeriod(int warrantyPeriod) { this.warrantyPeriod = warrantyPeriod; }
 
     @Override
     public String toString() {
         return super.toString() + ", Brand: " + brand + ", Model: " + model + ", Warranty Period: " + warrantyPeriod + " months";
     }
+   
 }

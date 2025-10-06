@@ -1,16 +1,14 @@
 
-import java.awt.*;
 import java.util.Scanner;
-import java.util.ArrayList;
 
 public class WQSLuisCarmonaTylerBullardMichaelSterbal {
 
     public static void main(String[] args) {
 
-        Casechosen();
+        welcome();
     }
 
-    public static void Casechosen() {
+    public static void welcome() {
         Scanner input = new Scanner(System.in);
         System.out.println("---Welcome to the Wilmington Quick Shop---");
         System.out.printf("%s%n%s%n%s%n%s", "Do you Sell or Purchase and item?", "1.) Sell", "2.) Purchase",
@@ -27,7 +25,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
             System.out.println("Choose an option: ");
             int Choice = input.nextInt();
             if (Choice == 5) {
-                Casechosen();
+                welcome();
             }
             options(Choice);
         } else if (buyOrSell == 2) {
@@ -36,7 +34,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
             System.out.println("Choose an option: ");
             int Choice = input.nextInt();
             if(Choice == 5) {
-                Casechosen();
+                welcome();
             }
             options(Choice);
         }
@@ -52,7 +50,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                 System.out.print("Choose an option: ");
                 int foodItemChoice = input.nextInt();
                 if (foodItemChoice == 4) {
-                    Casechosen();
+                    welcome();
                 }
                 break;
             case 2:
@@ -61,7 +59,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                 System.out.println("Choose an option: ");
                 int HouseItemChoice = input.nextInt();
                 if (HouseItemChoice == 3) {
-                    Casechosen();
+                    welcome();
                 }
                 break;
             case 3:
@@ -70,7 +68,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                 System.out.print("Choose an option: ");
                 int ElectronicItemChoice = input.nextInt();
                 if (ElectronicItemChoice == 4) {
-                    Casechosen();
+                    welcome();
                 }
                 break;
             case 4:
@@ -79,7 +77,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                 System.out.print("Choose an option: ");
                 int ClothingItemChoice = input.nextInt();
                 if (ClothingItemChoice == 4) {
-                    Casechosen();
+                    welcome();
                 }
                 break;
         }
