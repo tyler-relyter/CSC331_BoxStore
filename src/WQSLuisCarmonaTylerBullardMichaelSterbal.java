@@ -10,14 +10,16 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
         Casechosen();
     }
 
+
     public static void Casechosen() {
         Scanner input = new Scanner(System.in);
         System.out.println("---Welcome to the Wilmington Quick Shop---");
-        System.out.printf("%s%n%s%n%s%n%s", "Do you Sell or Purchase and item?", "1.) Sell", "2.) Purchase",
+        System.out.printf("%s%n%s%n%s%n%s", "Do you want to Sell or Purchase and item?", "1.) Sell", "2.) Purchase",
                 "Please enter your choice:  ");
         int buyOrSell = input.nextInt();
         buyOrSell(buyOrSell);
     }
+
 
     public static void buyOrSell(int buyOrSell) {
         Scanner input = new Scanner(System.in);
