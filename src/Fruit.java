@@ -1,31 +1,30 @@
 public class Fruit extends FoodItem{
 
-    private String Sweet;
+    private double fruitPrice;
 
-    public Fruit(String name, double price, String department, int stockQuantity, String sku, String Color, String Size, String Texture, String Taste, String Sweet) {
-        super(name, price, department, stockQuantity, sku, Color, Size, Texture, Taste);
-        this.Sweet = Sweet;
+
+    public Fruit(String name, double price, String department, int stockQuantity, String sku, String Color, String Texture, String Taste, double foodPrice, double fruitPrice) {
+        super(name, price, department, stockQuantity, sku, Color, Texture, Taste, foodPrice);
+        this.fruitPrice = fruitPrice;
+
     }
 
     //getter
-    public String getSweet(){return Sweet;} ;
+    public double getfruitPrice(){return fruitPrice;} ;
 
     //setter
-    public void setSweet(String Sweet){this.Sweet = Sweet;}
+    public void setfruitPrice(double fruitPrice){this.fruitPrice =fruitPrice;}
 
-    public void isSweet(){
-        if(        getSweet().equals("Mango")
-                || getSweet().equals("Strawberry")
-                || getSweet().equals("Pineapple")
-                || getSweet().equals("Banana")
-                || getSweet().equals("Grape")
-                || getSweet().equals("Cherry")){
-            this.setSweet("It's Sweet");
-        }
-        else{
-            this.setSweet("It's Not Sweet");
-        }
-
+    @Override
+    public double itemPrice(){
+        return getfruitPrice() + super.itemPrice();
     }
+
+    @Override
+    public String toString(){
+        return String.format("%sPrice: $%.2f", super.toString(), itemPrice());
+    }
+
+
 
 }
