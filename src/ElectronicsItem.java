@@ -29,6 +29,8 @@ public class ElectronicsItem extends StoreItem {
     public void setWarrantyPeriod(int warrantyPeriod) { this.warrantyPeriod = warrantyPeriod; }
 
     @Override
+    public double itemPrice(){ return getElectronicsPrice();}
+    @Override
     public String toString() {
         return super.toString() + ", Brand: " + brand + ", Model: " + model + ", Warranty Period: " + warrantyPeriod + " months";
     }
