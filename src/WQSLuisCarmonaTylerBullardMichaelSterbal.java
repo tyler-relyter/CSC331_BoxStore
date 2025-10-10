@@ -1,6 +1,5 @@
 
 import java.util.Scanner;
-import java.util.ArrayList;
 
 public class WQSLuisCarmonaTylerBullardMichaelSterbal {
     static Scanner input = new Scanner(System.in);
@@ -18,29 +17,35 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
         Fruit Mango = new Fruit("Mango", 5.00, "Fruits", 3, "A215", "red", "rough","sweet",3.00, 4);
         Fruit Grape = new Fruit("Grape", 5.00, "Fruits", 2, "A215", "red", "rough","sweet",3.00, 4);
 
+        // Vegies
+        Vegetable Broccoli = new Vegetable("Broccoli", 5.00, "Fruits", 5, "A215", "red", "rough","sweet",3.00, 2);
+        Vegetable Spinach = new Vegetable("Spinach", 5.00, "Fruits", 10, "A215", "red", "rough","sweet",3.00, 3);
 
 
-        FoofItems = new StoreItem[]{Strawberry, Apple, Mango, Grape};
+
+        FoofItems = new StoreItem[]{Strawberry, Apple, Mango, Grape, Broccoli, Spinach};
+
     }
 
 
-    public static void diplsayFoodItems(){
+    public static void diplsayItems(int inventoryChoice){
 
-        System.out.println("-------------Available Fruits-------------");
-        for (StoreItem currentItem: FoofItems) {
-            if (currentItem instanceof FoodItem) {
-                System.out.println(currentItem);
-                System.out.println("-----------------------------------------");
+        if (inventoryChoice == 1) {
+
+            System.out.println("-------------Available Food Items Inventories------------");
+            for (StoreItem currentItem : FoofItems) {
+                if (currentItem instanceof FoodItem) {
+                    System.out.printf("%s: %d%n", currentItem.getName(), currentItem.getStockQuantity());
+                    System.out.println("-----------------------------------------");
+                }
             }
         }
-
         System.out.printf("would like to %n1.)Add to Existing item  %n2.)Create a new Food Item%n");
         System.out.print("Enter your choice: ");
         int createOrAdd = input.nextInt();
 
         if (createOrAdd == 1) {
-            int foodChoice = options(1);
-            addFooditmes(foodChoice);
+            addFooditmes(createOrAdd);
         }
     }
 
@@ -67,9 +72,8 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
             boolean found = false;
 
             for (StoreItem item : FoofItems) {
-                if (item instanceof FoodItem && item.getName().equalsIgnoreCase(name)) {
-                    ((FoodItem) item).addStock(amount);
-                    System.out.println("Stock has been updated, the new quantity of " + name + ": " + item.getStockQuantity());
+                if (item instanceof FoodItem foodItem && item.getName().equalsIgnoreCase(name)) {
+                    foodItem.addStock(amount);
                     found = true;
                     break;
                 }
@@ -102,10 +106,9 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
             int Choice = input.nextInt();
             if (Choice == 5) {
                 Casechosen();
-
             }
             if (Choice == 1) {
-                diplsayFoodItems();
+                diplsayItems(Choice);
             }
 
         } else if (addOrSell == 2) {
@@ -164,6 +167,5 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
         }
     return Choice;
     }
-
 }
 
