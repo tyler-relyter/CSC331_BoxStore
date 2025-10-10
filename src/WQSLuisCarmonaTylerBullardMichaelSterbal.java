@@ -17,11 +17,8 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
         Fruit Mango = new Fruit("Mango", 5.00, "Fruits", 3, "A215", "red", "rough","sweet",3.00, 4);
         Fruit Grape = new Fruit("Grape", 5.00, "Fruits", 2, "A215", "red", "rough","sweet",3.00, 4);
 
-
-
         FoofItems = new StoreItem[]{Strawberry, Apple, Mango, Grape};
     }
-
 
     public static void diplsayFoodItems(){
 
@@ -118,7 +115,6 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
             options(Choice);
         }
     }
-
 
     public static int options(int Choice) {
         Scanner input = new Scanner(System.in);
