@@ -1,28 +1,31 @@
 public class Vegetable extends FoodItem {
 
-    private String Root;
+    private double vegPrice;
 
-    public Vegetable(String name, double price, String department, int stockQuantity, String sku, String Color, String Size, String Texture, String Taste, String Root) {
-        super(name, price, department, stockQuantity, sku, Color, Size, Texture, Taste);
-        this.Root = Root;
+    public Vegetable(String name, double price, String department, int stockQuantity, String sku, String Color, String Texture, String Taste, double foodPrice, double vegPrice) {
+        super(name, price, department, stockQuantity, sku, Color, Texture, Taste, foodPrice);
+        if (vegPrice <= 0){
+            this.vegPrice = 1.50;
+        }
+        else {
+            this.vegPrice = vegPrice;
+        }
     }
 
     //getters
-    public String getRoot() {return Root;}
+    public double getVegPrice() {return vegPrice;}
 
     //setters
-    public void setRoot(String Root) {this.Root = Root;}
+    public void setVegPrice(double vegPrice) {if (vegPrice <= 0){ this.vegPrice = vegPrice; }}
 
-    public void isRooted() {
-        if(getRoot().equals("Broccoli")
-        || getRoot().equals("Spinach")
-        || getRoot().equals("Lettuce")
-        || getRoot().equals("Peppers")){
-            setRoot("not a rooted vegetable");
-        }
-        else{
-            setRoot("is a Rooted vegetable");
-            }
+    //Other methods
 
-        }
+
+    @Override
+    public double itemPrice(){ return getVegPrice() + super.itemPrice(); }
+
+    @Override
+    public String toString(){
+        return String.format("%s%n Vegetable: %.2f",super.itemPrice(), vegPrice);
     }
+}

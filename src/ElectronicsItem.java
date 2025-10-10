@@ -1,15 +1,19 @@
 public class ElectronicsItem extends StoreItem {
     private String brand;
     private String model;
-    private int warrantyPeriod; // in months
+    private int warrantyPeriod;
+    private  double electronicsPrice;
+    // in months
 
     // Constructor
     public ElectronicsItem(String name, double price, String department, int stockQuantity, String sku,
                            String brand, String model, int warrantyPeriod) {
         super(name, price, department, stockQuantity, sku);
+
         this.brand = brand;
         this.model = model;
         this.warrantyPeriod = warrantyPeriod;
+        this.electronicsPrice = electronicsPrice;
     }
 
     // Getters
@@ -25,6 +29,8 @@ public class ElectronicsItem extends StoreItem {
         return warrantyPeriod;
     }
 
+    public double getElectronicsPrice() {return electronicsPrice;}
+
     // Setters
     public void setBrand(String brand) {
         this.brand = brand;
@@ -37,6 +43,10 @@ public class ElectronicsItem extends StoreItem {
     public void setWarrantyPeriod(int warrantyPeriod) {
         this.warrantyPeriod = warrantyPeriod;
     }
+    public void setElectronicsPrice(double electronicsPrice) {}
+
+    @Override
+    public double itemPrice(){ return getPrice();}
 
     @Override
     public String toString() {

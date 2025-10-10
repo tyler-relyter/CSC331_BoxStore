@@ -1,4 +1,4 @@
-public class StoreItem {
+public abstract class StoreItem {
 
     private String name;
     private double price;
@@ -86,5 +86,13 @@ public class StoreItem {
      * @param sku String representing the new SKU of the item.
      */
     public void setSku(String sku) { this.sku = sku; }
+
+
+    public abstract double itemPrice();
+
+    @Override
+    public String toString() {
+        return String.format("Name: %s", this.name);
+    }
 }
 
