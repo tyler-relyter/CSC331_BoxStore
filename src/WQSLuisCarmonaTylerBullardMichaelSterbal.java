@@ -119,16 +119,16 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
             if(Choice == 5) {
                 Casechosen();
             }
-            options(Choice);
+            sellOptions(Choice);
         }
     }
 
 
-    public static int options(int Choice) {
+    public static int sellOptions(int Choice) {
         Scanner input = new Scanner(System.in);
         switch (Choice) {
             case 1:
-                System.out.println("--- CHOOS FOOD ITEM ---");
+                System.out.println("--- CHOOSE FOOD ITEM ---");
                 System.out.printf("%s%n%s%n%s%n%s%n", "1.) Fruit", "2.) Vegetable", "3.) Shelf Stable", "4.) Main Menu");
                 System.out.print("Choose an option: ");
                 int foodItemChoice = input.nextInt();
@@ -138,7 +138,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                 return foodItemChoice;
 
             case 2:
-                System.out.println("--- CHOOS HOUSE HOLD ITEM ---");
+                System.out.println("--- CHOOSE HOUSE HOLD ITEM ---");
                 System.out.printf("%s%n%s%n%s%n", "1.) Cleaning Supply", "2.) Furniture", "3.) Main Menu");
                 System.out.println("Choose an option: ");
                 int HouseItemChoice = input.nextInt();
@@ -147,7 +147,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                 }
                 break;
             case 3:
-                System.out.println("--- CHOOS ELECTRONIC ITEM ---");
+                System.out.println("--- CHOOSE ELECTRONIC ITEM ---");
                 System.out.printf("%s%n%s%n%s%n%s%n", "1.) Laptop", "2.) Phone", "3.) TV", "4.) Main Menu");
                 System.out.print("Choose an option: ");
                 int ElectronicItemChoice = input.nextInt();
@@ -156,7 +156,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                 }
                 break;
             case 4:
-                System.out.println("--- CHOOS CLOTHING ITEM ---");
+                System.out.println("--- CHOOSE CLOTHING ITEM ---");
                 System.out.printf("%s%n%s%n%s%n%s%n", "1.) Outer Wear", "2.) Shoe", "3.) Shirt", "4.) Main Menu");
                 System.out.print("Choose an option: ");
                 int ClothingItemChoice = input.nextInt();
