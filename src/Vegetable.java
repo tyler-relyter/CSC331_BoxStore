@@ -2,8 +2,8 @@ public class Vegetable extends FoodItem {
 
     private double vegPrice;
 
-    public Vegetable(String name, double price, String department, int stockQuantity, String sku, String Color, String Texture, String Taste, double foodPrice, double vegPrice) {
-        super(name, price, department, stockQuantity, sku, Color, Texture, Taste, foodPrice);
+    public Vegetable(String name, double price, String department, int stockQuantity, String sku, String Color,  double vegPrice) {
+        super(name, price, department, stockQuantity, sku, Color);
         if (vegPrice <= 0){
             this.vegPrice = 1.50;
         }

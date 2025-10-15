@@ -2,8 +2,8 @@ public class OuterWear extends ClothingItem {
 
     private double outerWearTax;
 
-    public OuterWear(String name, double price, String department, int stockQuantity, String sku, String Color, double clothingPrice, double outerWearPrice ) {
-        super(name, price, department, stockQuantity, sku, Color, clothingPrice);
+    public OuterWear(String name, double price, String department, int stockQuantity, String sku, String Color, double outerWearPrice ) {
+        super(name, price, department, stockQuantity, sku, Color);
         this.outerWearTax = outerWearPrice;
     }
 

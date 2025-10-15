@@ -3,9 +3,9 @@ public class Fruit extends FoodItem{
     private double fruitTax;
 
 
-    public Fruit(String name, double price, String department, int stockQuantity, String sku, String Color, String Texture, String Taste, double foodPrice, double fruitPrice) {
-        super(name, price, department, stockQuantity, sku, Color, Texture, Taste, foodPrice);
-        this.fruitTax = fruitPrice;
+    public Fruit(String name, double price, String department, int stockQuantity, String sku, String Color, double fruitTax) {
+        super(name, price, department, stockQuantity, sku, Color);
+        this.fruitTax = fruitTax;
 
     }
 
@@ -17,14 +17,12 @@ public class Fruit extends FoodItem{
 
     @Override
     public double itemPrice(){
-        return getfruitPrice() + super.itemPrice();
+        return  super.getPrice()*(1 + this.fruitTax);
     }
 
     @Override
     public String toString(){
         return String.format("%sPrice: $%.2f", super.toString(), itemPrice());
     }
-
-
 
 }

@@ -2,9 +2,10 @@ public class Shoe extends ClothingItem {
 
     private double shoeTax;
 
-    public Shoe(String name, double price, String department, int stockQuantity, String sku, String Color, double clothingPrice, double shoeTax) {
-        super(name, price, department, stockQuantity, sku, Color, clothingPrice);
+    public Shoe(String name, double price, String department, int stockQuantity, String sku, String Color, double shoeTax) {
+        super(name, price, department, stockQuantity, sku, Color);
         this.shoeTax = shoeTax;
+
     }
 
     //getters
