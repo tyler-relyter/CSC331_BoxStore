@@ -1,4 +1,4 @@
-public abstract class ClothingItem extends StoreItem {
+public class ClothingItem extends StoreItem {
     private String size;
     private String color;
     private String material;

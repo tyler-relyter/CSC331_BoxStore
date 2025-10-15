@@ -1,4 +1,4 @@
-public abstract class HouseHoldItem extends StoreItem{
+public class HouseHoldItem extends StoreItem{
 
     // ---------- Instance Variables ----------
     private String brand;        // e.g., "Shiny" (can be null or "-")

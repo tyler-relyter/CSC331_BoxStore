@@ -1,4 +1,4 @@
-public abstract class ElectronicsItem extends StoreItem {
+public class ElectronicsItem extends StoreItem {
     private String brand;
     private String model;
     private int warrantyPeriod;
