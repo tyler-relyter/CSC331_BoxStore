@@ -1,28 +1,25 @@
 public class Fruit extends FoodItem{
 
-    private double fruitPrice;
+    private String fruitSource; // country of origin
 
 
-    public Fruit(String name, double price, String department, int stockQuantity, String sku, String Color, String Texture, String Taste, double foodPrice, double fruitPrice) {
-        super(name, price, department, stockQuantity, sku, Color, Texture, Taste, foodPrice);
-        this.fruitPrice = fruitPrice;
+    public Fruit(String name, double price, String department, int stockQuantity, String sku, String Color, String Texture, String Taste, String fruitSource) {
+        super(name, price, department, stockQuantity, sku, Color, Texture, Taste);
+        this.fruitSource = fruitSource;
 
     }
 
     //getter
-    public double getfruitPrice(){return fruitPrice;} ;
+    public String getFruitSource(){return fruitSource;}
 
     //setter
-    public void setfruitPrice(double fruitPrice){this.fruitPrice =fruitPrice;}
+    public void setFruitSource(String fruitSource){this.fruitSource = fruitSource;}
 
-    @Override
-    public double itemPrice(){
-        return getfruitPrice() + super.itemPrice();
-    }
+
 
     @Override
     public String toString(){
-        return String.format("%sPrice: $%.2f", super.toString(), itemPrice());
+        return String.format("%sSource Country: %s", super.toString(), getFruitSource());
     }
 
 

@@ -1,31 +1,32 @@
 public class Vegetable extends FoodItem {
 
-    private double vegPrice;
+    private boolean isOrganic;
 
-    public Vegetable(String name, double price, String department, int stockQuantity, String sku, String Color, String Texture, String Taste, double foodPrice, double vegPrice) {
-        super(name, price, department, stockQuantity, sku, Color, Texture, Taste, foodPrice);
-        if (vegPrice <= 0){
-            this.vegPrice = 1.50;
-        }
-        else {
-            this.vegPrice = vegPrice;
-        }
+    public Vegetable(String name, double price, String department, int stockQuantity, String sku, String Color, String Texture, String Taste, boolean isOrganic) {
+        super(name, price, department, stockQuantity, sku, Color, Texture, Taste);
+        this.isOrganic = isOrganic;
     }
 
     //getters
-    public double getVegPrice() {return vegPrice;}
+
+    /**
+     * Check if the vegetable is organic.
+     * @return isOrganic boolean representing if the vegetable is organic.
+     */
+    public boolean getIsOrganic() { return isOrganic; }
 
     //setters
-    public void setVegPrice(double vegPrice) {if (vegPrice <= 0){ this.vegPrice = vegPrice; }}
 
-    //Other methods
+    /**
+     * Set whether the vegetable is organic.
+     * @param isOrganic boolean representing the new organic status of the vegetable.
+     */
+    public void setIsOrganic(boolean isOrganic) { this.isOrganic = isOrganic; }
 
 
+    // Override toString method to include vegetable-specific details
     @Override
-    public double itemPrice(){ return getVegPrice() + super.itemPrice(); }
-
-    @Override
-    public String toString(){
-        return String.format("%s%n Vegetable: %.2f",super.itemPrice(), vegPrice);
+    public String toString() {
+        return String.format("%sIs Organic: %s", super.toString(), getIsOrganic() ? "Yes" : "No");
     }
 }

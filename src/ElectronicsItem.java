@@ -1,8 +1,8 @@
-public class ElectronicsItem extends StoreItem {
+public abstract class ElectronicsItem extends StoreItem {
     private String brand;
     private String model;
     private int warrantyPeriod;
-    private  double electronicsPrice;
+
     // in months
 
     // Constructor
@@ -13,7 +13,7 @@ public class ElectronicsItem extends StoreItem {
         this.brand = brand;
         this.model = model;
         this.warrantyPeriod = warrantyPeriod;
-        this.electronicsPrice = electronicsPrice;
+        super.setDepartment("Electronics");
     }
 
     // Getters
@@ -21,15 +21,15 @@ public class ElectronicsItem extends StoreItem {
     public String getModel() { return model; }
     public int getWarrantyPeriod() { return warrantyPeriod; }
 
-    public double getElectronicsPrice() {return electronicsPrice;}
 
     // Setters
     public void setBrand(String brand) { this.brand = brand; }
     public void setModel(String model) { this.model = model; }
     public void setWarrantyPeriod(int warrantyPeriod) { this.warrantyPeriod = warrantyPeriod; }
 
-    @Override
-    public double itemPrice(){ return getElectronicsPrice();}
+
+
+    // Override toString method to include electronics-specific details
     @Override
     public String toString() {
         return super.toString() + ", Brand: " + brand + ", Model: " + model + ", Warranty Period: " + warrantyPeriod + " months";

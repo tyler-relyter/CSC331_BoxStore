@@ -1,2 +1,48 @@
-public class OuterWear {
+public class OuterWear extends ClothingItem{
+    private boolean isWaterproof;
+
+    // Constructor
+
+    /**
+     * Constructs an OuterWear item.
+     * @param name String Name of the outerwear
+     * @param price double Price of the outerwear
+     * @param department String Department
+     * @param stockQuantity int Stock quantity
+     * @param sku String SKU
+     * @param size String Size
+     * @param color String Color
+     * @param material String Material
+     * @param isWaterproof boolean Whether the outerwear is waterproof
+     */
+    public OuterWear(String name, double price, String department, int stockQuantity, String sku,
+                    String size, String color, String material, boolean isWaterproof) {
+        super(name, price, department, stockQuantity, sku, size, color, material);
+        this.isWaterproof = isWaterproof;
+    }
+
+    // Getter
+
+    /**
+     * Get whether the outerwear is waterproof.
+     * @return isWaterproof boolean representing if the outerwear is waterproof.
+     */
+    public boolean isWaterproof() { return isWaterproof; }
+
+    // Setter
+
+    /**
+     * Set whether the outerwear is waterproof.
+     * @param isWaterproof boolean representing the new waterproof status of the outerwear.
+     */
+    public void setWaterproof(boolean isWaterproof) { this.isWaterproof = isWaterproof; }
+
+
+
+    // Override toString method to include outerwear-specific details
+    @Override
+    public String toString() {
+        return super.toString() + ", Waterproof: " + (isWaterproof ? "Yes" : "No");
+    }
+
 }
