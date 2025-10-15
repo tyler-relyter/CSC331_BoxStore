@@ -45,7 +45,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
         int createOrAdd = input.nextInt();
 
         if (createOrAdd == 1) {
-            addFooditmes(createOrAdd);
+            addExistingFooditmes(createOrAdd);
         }
     }
 
@@ -57,44 +57,45 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
         addOrSell(buyOrAdd);
     }
 
-    public static void addFooditmes(int foodChoice) {
-        System.out.println("-------------Add Food Items to existing inventory-------------");
+    public static void addExistingFooditmes(int itemChoiceAdd) {
+        switch(itemChoiceAdd) {
+            case 1:
+                System.out.println("-------------Add Food Items to existing inventory-------------");
 
-        boolean cont = true;
-        while (cont){
-            System.out.print("Name of item do you want to add to inventory?: ");
-            String name = input.next();
+                boolean cont = true;
+                while (cont) {
+                    System.out.print("Name of item do you want to add to inventory?: ");
+                    String name = input.next();
 
-            System.out.print("Amount you want to add: ");
-            int amount = input.nextInt();
+                    System.out.print("Amount you want to add: ");
+                    int amount = input.nextInt();
 
+                    boolean found = false;
 
-            boolean found = false;
+                    for (StoreItem item : FoofItems) {
+                        if (item instanceof FoodItem foodItem && item.getName().equalsIgnoreCase(name)) {
+                            foodItem.addStock(amount);
+                            found = true;
+                            break;
+                        }
+                    }
 
-            for (StoreItem item : FoofItems) {
-                if (item instanceof FoodItem foodItem && item.getName().equalsIgnoreCase(name)) {
-                    foodItem.addStock(amount);
-                    found = true;
-                    break;
-                }
-            }
-
-            if (!found) {
-                System.out.println("Item not found in inventory. Cannot add stock.");
-            }
-            System.out.print("Add another item? (y/n): ");
-            if (input.next().equalsIgnoreCase("n")) {
-                System.out.println("--------UPDATED FOOD INVENTORY------------");
-                for (StoreItem currentItem: FoofItems) {
-                    if (currentItem instanceof FoodItem) {
-                        System.out.printf("%s: %d%n",currentItem.getName(), currentItem.getStockQuantity());
-                        System.out.println("-----------------------------------------");
+                    if (!found) {
+                        System.out.println("Item not found in inventory. Cannot add stock.");
+                    }
+                    System.out.print("Add another item? (y/n): ");
+                    if (input.next().equalsIgnoreCase("n")) {
+                        System.out.println("--------UPDATED FOOD INVENTORY------------");
+                        for (StoreItem currentItem : FoofItems) {
+                            if (currentItem instanceof FoodItem) {
+                                System.out.printf("%s: %d%n", currentItem.getName(), currentItem.getStockQuantity());
+                                System.out.println("-----------------------------------------");
+                            }
+                        }
+                        cont = false;
                     }
                 }
-                cont = false;
-            }
         }
-
     }
 
     public static void addOrSell(int addOrSell) {
@@ -125,7 +126,6 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
 
 
     public static int sellOptions(int Choice) {
-        Scanner input = new Scanner(System.in);
         switch (Choice) {
             case 1:
                 System.out.println("--- CHOOSE FOOD ITEM ---");
