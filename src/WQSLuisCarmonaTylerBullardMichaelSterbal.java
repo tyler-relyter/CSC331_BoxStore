@@ -5,6 +5,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
     static Scanner input = new Scanner(System.in);
 
     static StoreItem[] FoofItems;
+    static StoreItem[] ClothingItems;
 
     public static void main(String[] args) {
         createInventory();
@@ -21,12 +22,29 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
         Vegetable Broccoli = new Vegetable("Broccoli", 5.00, "Fruits", 5, "A215", "red", "rough","sweet",3.00, 2);
         Vegetable Spinach = new Vegetable("Spinach", 5.00, "Fruits", 10, "A215", "red", "rough","sweet",3.00, 3);
 
+        //Shoes
+        Shoe dressShoe = new Shoe("adidda",10, "Dress Shoes", 10,"A432DE","Black", 50,0.04);
+
+
 
 
         FoofItems = new StoreItem[]{Strawberry, Apple, Mango, Grape, Broccoli, Spinach};
+        ClothingItems = new StoreItem[]{dressShoe};
 
     }
-
+    public static void Casechosen() {
+        System.out.println("---Welcome to the Wilmington Quick Shop---");
+        System.out.printf("%s%n%s%n%s%n%s", "Do you want to Add or Purchase and item?", "1.) Add", "2.) Purchase",
+                "Please enter your choice: ");
+        if (input.nextInt() == 1) {
+            System.out.printf("would like to %n1.)Add to Existing item  %n2.)Create a new Item%n");
+            System.out.print("Enter your choice: ");
+            int choice = input.nextInt();
+            if (choice == 1) {
+                addOrSell(choice);
+            }
+        }
+    }
 
     public static void diplsayItems(int inventoryChoice){
 
@@ -38,31 +56,30 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                     System.out.printf("%s: %d%n", currentItem.getName(), currentItem.getStockQuantity());
                     System.out.println("-----------------------------------------");
                 }
+                addExistingFooditmes(1);
             }
         }
-        System.out.printf("would like to %n1.)Add to Existing item  %n2.)Create a new Food Item%n");
-        System.out.print("Enter your choice: ");
-        int createOrAdd = input.nextInt();
+        if (inventoryChoice == 4) {
 
-        if (createOrAdd == 1) {
-            addExistingFooditmes(createOrAdd);
+            System.out.println("-------------Available Clothing Items Inventories------------");
+            for (StoreItem currentItem : ClothingItems) {
+                if (currentItem instanceof ClothingItem) {
+                    System.out.printf("%s: %d%n", currentItem.getName(), currentItem.getStockQuantity());
+                    System.out.println("-----------------------------------------");
+                }
+                addExistingFooditmes(2);
+            }
         }
     }
 
-    public static void Casechosen() {
-        System.out.println("---Welcome to the Wilmington Quick Shop---");
-        System.out.printf("%s%n%s%n%s%n%s", "Do you want to Add or Purchase and item?", "1.) Add", "2.) Purchase",
-                "Please enter your choice: ");
-        int buyOrAdd = input.nextInt();
-        addOrSell(buyOrAdd);
-    }
 
-    public static void addExistingFooditmes(int itemChoiceAdd) {
-        switch(itemChoiceAdd) {
+
+    public static void addExistingFooditmes(int options) {
+        boolean cont = true;
+
+        switch(options) {
             case 1:
                 System.out.println("-------------Add Food Items to existing inventory-------------");
-
-                boolean cont = true;
                 while (cont) {
                     System.out.print("Name of item do you want to add to inventory?: ");
                     String name = input.next();
@@ -95,6 +112,41 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                         cont = false;
                     }
                 }
+                break;
+            case 2:
+                System.out.println("-------------Add House Hold Items to existing inventory-------------");
+                while (cont) {
+                    System.out.print("Name of item do you want to add to inventory?: ");
+                    String name = input.next();
+
+                    System.out.print("Amount you want to add: ");
+                    int amount = input.nextInt();
+
+                    boolean found = false;
+
+                    for (StoreItem item : ClothingItems) {
+                        if (item instanceof ClothingItem clothingItem && item.getName().equalsIgnoreCase(name)) {
+                            clothingItem.addStock(amount);
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (!found) {
+                        System.out.println("Item not found in inventory. Cannot add clothing.");
+                    }
+                    System.out.print("Add another item? (y/n): ");
+                    if (input.next().equalsIgnoreCase("n")) {
+                        System.out.println("--------UPDATED CLOTHING INVENTORY------------");
+                        for (StoreItem currentItem : ClothingItems) {
+                            if (currentItem instanceof ClothingItem) {
+                                System.out.printf("%s: %d%n", currentItem.getName(), currentItem.getStockQuantity());
+                                System.out.println("-----------------------------------------");
+                            }
+                        }
+                        cont = false;
+                    }
+                }
+                break;
         }
     }
 
@@ -108,7 +160,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
             if (Choice == 5) {
                 Casechosen();
             }
-            if (Choice == 1) {
+            if (Choice == 1 || Choice == 2 || Choice == 3 || Choice == 4)  {
                 diplsayItems(Choice);
             }
 
