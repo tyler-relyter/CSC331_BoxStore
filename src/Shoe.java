@@ -19,7 +19,7 @@ public class Shoe extends ClothingItem {
 
     @Override
     public String toString(){
-        return String.format("%s%nAmount: %s %n", super.toString(), getStockQuantity());
+        return String.format("%s%nAmount: %n Price After Tax: %s", super.toString(), getShoeTax());
     }
 }
 

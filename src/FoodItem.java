@@ -2,12 +2,9 @@ public class FoodItem extends StoreItem{
 
     private String Color;
 
-
-
-
     public FoodItem(String name, double price, String department, int stockQuantity, String sku, String Color) {
         super(name, price, department, stockQuantity, sku);
-        super.setDepartment("Clothing");
+        super.setDepartment("Food");
         this.Color = Color;
 
     }
@@ -15,8 +12,6 @@ public class FoodItem extends StoreItem{
     public FoodItem(String name, double price, String department, int stockQuantity, String sku) {
         super(name, price, department, stockQuantity, sku);
         this.Color = "";
-
-
     }
 
     //getter
@@ -33,6 +28,6 @@ public class FoodItem extends StoreItem{
 
     @Override
     public String toString(){
-        return String.format("%s%nAmount: %s %n", super.toString(), getStockQuantity(), getDepartment());
+        return String.format("%s%nAmount: %s %nDepartment: %s%n", super.toString(), getStockQuantity(), getDepartment());
     }
 }

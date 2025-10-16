@@ -1,4 +1,6 @@
 
+import java.awt.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class WQSLuisCarmonaTylerBullardMichaelSterbal {
@@ -6,13 +8,14 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
 
     static StoreItem[] foodItems;
     static StoreItem[] clothingItems;
+    static StoreItem[] newItems;
 
     public static void main(String[] args) {
         baseInventory();
         Casechosen();
     }
 
-    public static void baseInventory(){
+    public static void baseInventory() {
         Fruit Strawberry = new Fruit("Strawberry", 5.00, "", 5, "A215", "red",  2);
         Fruit Apple = new Fruit("Apple", 5.00, "", 10, "A215", "red",  3);
         Fruit Mango = new Fruit("Mango", 5.00, "", 3, "A215", "red",  4);
@@ -35,13 +38,31 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
         System.out.println("---Welcome to the Wilmington Quick Shop---");
         System.out.printf("%s%n%s%n%s%n%s", "Do you want to Add or Purchase and item?", "1.) Add", "2.) Purchase",
                 "Please enter your choice: ");
-        if (input.nextInt() == 1) {
-            System.out.printf("would like to %n1.)Add to Existing item  %n2.)Create a new Item%n");
-            System.out.print("Enter your choice: ");
-            int choice = input.nextInt();
-            if (choice == 1) {
-                addOrSell(choice);
+        int choice = input.nextInt();
+        if (choice == 1) {
+            addOrSell(choice);
+        }
+        if (choice == 2){
+            addOrSell(choice);
             }
+
+    }
+
+    public static void addToExistingOrNew(){
+        System.out.printf("Would like to %n1.)Add to Existing item  %n2.)Create a new Item%n");
+        System.out.print("Enter your choice: ");
+        int choice = input.nextInt();
+        if (choice == 1) {
+            System.out.printf("1.)Food%n2.)House Hold%n3.)Electronics%n4.)Clothing Items%n");
+            System.out.print("Enter your choice: ");
+            int choice2 = input.nextInt();
+            addExistingitmes(choice2);
+        }
+        if (choice == 2){
+            System.out.printf("1.)Food%n2.)House Hold%n3.)Electronics%n4.)Clothing Items%n");
+            System.out.print("Enter your choice: ");
+            int choice3 = input.nextInt();
+            addNewItem(choice3);
         }
     }
 
@@ -56,7 +77,6 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                     System.out.println("-----------------------------------------");
                 }
             }
-            addExistingitmes(1);
         }
         if (inventoryChoice == 4) {
 
@@ -67,8 +87,8 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                     System.out.println("-----------------------------------------");
                 }
             }
-            addExistingitmes(2);
         }
+        addToExistingOrNew();
     }
 
 
@@ -111,7 +131,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                     }
                 }
                 break;
-            case 2:
+            case 4:
                 System.out.println("-------------Add House Hold Items to existing inventory-------------");
                 while (cont) {
                     System.out.print("Name of item do you want to add to inventory?: ");
@@ -146,12 +166,41 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                 }
                 break;
         }
+        Casechosen();
+    }
+
+    public static void addNewItem(int choice){
+        if  (choice == 1) {
+            System.out.println("please enter the following information");
+            System.out.print("Name: ");
+            String name = input.next();
+            System.out.print("Price: ");
+            double price = input.nextInt();
+            input.nextLine();
+            System.out.print("Department: ");
+            String department = input.next();
+            System.out.print("Quantity: ");
+            int stockQuantity = input.nextInt();
+            System.out.print("SKU: ");
+            String sku = input.next();
+            System.out.print("Color: ");
+            String color = input.next();
+
+            FoodItem food = new FoodItem(name, price, department, stockQuantity, sku, color);
+
+            foodItems = new StoreItem[]{food};
+            baseInventory();
+            diplsayItems(choice);
+
+        }
+
+
     }
 
     public static void addOrSell(int addOrSell) {
         Scanner input = new Scanner(System.in);
         if (addOrSell == 1) {
-            System.out.println("---Choose  what would you like to Add---");
+            System.out.println("---Choose  what would you like to Display---");
             System.out.printf("%s%n%s%n%s%n%s%n%s%n", "1.) Food Items", "2.) House Hold Items", "3.) Electronic Items", "4.) Clothing Items", "5.) Go back to main menu");
             System.out.print("Choose an option: ");
             int Choice = input.nextInt();
