@@ -192,7 +192,30 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                 String color = input.next();
 
                 newItems.add(new FoodItem(name, price, department, stockQuantity, sku, color));
-                diplsayItems(1);
+                System.out.print("Add another item? (y/n): ");
+                if (input.next().equalsIgnoreCase("n")) {
+                    cont = false;
+                }
+
+            }
+
+            if (choice == 4) {
+                System.out.println("please enter the following information");
+                System.out.print("Name: ");
+                String name = input.next();
+                System.out.print("Price: ");
+                double price = input.nextInt();
+                input.nextLine();
+                System.out.print("Department: ");
+                String department = input.next();
+                System.out.print("Quantity: ");
+                int stockQuantity = input.nextInt();
+                System.out.print("SKU: ");
+                String sku = input.next();
+                System.out.print("Color: ");
+                String color = input.next();
+
+                newItems.add(new ClothingItem(name, price, department, stockQuantity, sku, color));
                 System.out.print("Add another item? (y/n): ");
                 if (input.next().equalsIgnoreCase("n")) {
                     cont = false;
