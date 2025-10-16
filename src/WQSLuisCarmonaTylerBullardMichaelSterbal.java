@@ -8,7 +8,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
 
     static StoreItem[] foodItems;
     static StoreItem[] clothingItems;
-    static StoreItem[] newItems;
+    static ArrayList<StoreItem> newItems = new ArrayList<StoreItem>();
 
     public static void main(String[] args) {
         baseInventory();
@@ -20,18 +20,21 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
         Fruit Apple = new Fruit("Apple", 5.00, "", 10, "A215", "red",  3);
         Fruit Mango = new Fruit("Mango", 5.00, "", 3, "A215", "red",  4);
         Fruit Grape = new Fruit("Grape", 5.00, "", 2, "A215", "red",  4);
+        newItems.add(Strawberry);
+        newItems.add(Apple);
+        newItems.add(Mango);
+        newItems.add(Grape);
 
         // Vegies
         Vegetable Broccoli = new Vegetable("Broccoli", 5.00, "Fruits", 5, "A215", "red",  2);
         Vegetable Spinach = new Vegetable("Spinach", 5.00, "Fruits", 10, "A215", "red",  3);
-
+        newItems.add(Broccoli);
+        newItems.add(Spinach);
         //Shoes
         Shoe dressShoe = new Shoe("adidas",10, "",10,"A432DE","Black", 0.04);
         Shoe tennis = new Shoe("nike",11, "", 10,"A438DE","Red", 0.04);
-
-
-        foodItems = new StoreItem[]{Strawberry, Apple, Mango, Grape, Broccoli, Spinach};
-        clothingItems = new StoreItem[]{dressShoe,tennis};
+        newItems.add(tennis);
+        newItems.add(dressShoe);
 
     }
     public static void Casechosen() {
@@ -71,9 +74,9 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
         if (inventoryChoice == 1) {
 
             System.out.println("-------------Available Food Items Inventories------------");
-            for (StoreItem currentItem : foodItems) {
+            for (StoreItem currentItem : newItems) {
                 if (currentItem instanceof FoodItem) {
-                    System.out.printf("%s: %d%n %s%n", currentItem.getName(), currentItem.getStockQuantity(),currentItem.getDepartment());
+                    System.out.printf("%s: %d%n%s%n", currentItem.getName(), currentItem.getStockQuantity(),currentItem.getDepartment());
                     System.out.println("-----------------------------------------");
                 }
             }
@@ -81,7 +84,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
         if (inventoryChoice == 4) {
 
             System.out.println("-------------Available Clothing Items Inventories------------");
-            for (StoreItem currentItem : clothingItems) {
+            for (StoreItem currentItem : newItems) {
                 if (currentItem instanceof ClothingItem) {
                     System.out.printf("%s: %d%n %S", currentItem.getName(), currentItem.getStockQuantity(), currentItem.getDepartment());
                     System.out.println("-----------------------------------------");
@@ -107,7 +110,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
 
                     boolean found = false;
 
-                    for (StoreItem item : foodItems) {
+                    for (StoreItem item : newItems) {
                         if (item instanceof FoodItem foodItem && item.getName().equalsIgnoreCase(name)) {
                             foodItem.addStock(amount);
                             found = true;
@@ -121,7 +124,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                     System.out.print("Add another item? (y/n): ");
                     if (input.next().equalsIgnoreCase("n")) {
                         System.out.println("--------UPDATED FOOD INVENTORY------------");
-                        for (StoreItem currentItem : foodItems) {
+                        for (StoreItem currentItem : newItems) {
                             if (currentItem instanceof FoodItem) {
                                 System.out.printf("%s: %d%n", currentItem.getName(), currentItem.getStockQuantity());
                                 System.out.println("-----------------------------------------");
@@ -142,7 +145,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
 
                     boolean found = false;
 
-                    for (StoreItem item : clothingItems) {
+                    for (StoreItem item : newItems) {
                         if (item instanceof ClothingItem clothingItem && item.getName().equalsIgnoreCase(name)) {
                             clothingItem.addStock(amount);
                             found = true;
@@ -155,7 +158,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                     System.out.print("Add another item? (y/n): ");
                     if (input.next().equalsIgnoreCase("n")) {
                         System.out.println("--------UPDATED CLOTHING INVENTORY------------");
-                        for (StoreItem currentItem : clothingItems) {
+                        for (StoreItem currentItem : newItems) {
                             if (currentItem instanceof ClothingItem) {
                                 System.out.printf("%s: %d%n", currentItem.getName(), currentItem.getStockQuantity());
                                 System.out.println("-----------------------------------------");
@@ -170,30 +173,34 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
     }
 
     public static void addNewItem(int choice){
-        if  (choice == 1) {
-            System.out.println("please enter the following information");
-            System.out.print("Name: ");
-            String name = input.next();
-            System.out.print("Price: ");
-            double price = input.nextInt();
-            input.nextLine();
-            System.out.print("Department: ");
-            String department = input.next();
-            System.out.print("Quantity: ");
-            int stockQuantity = input.nextInt();
-            System.out.print("SKU: ");
-            String sku = input.next();
-            System.out.print("Color: ");
-            String color = input.next();
+        boolean cont = true;
+        while(cont) {
+            if (choice == 1) {
+                System.out.println("please enter the following information");
+                System.out.print("Name: ");
+                String name = input.next();
+                System.out.print("Price: ");
+                double price = input.nextInt();
+                input.nextLine();
+                System.out.print("Department: ");
+                String department = input.next();
+                System.out.print("Quantity: ");
+                int stockQuantity = input.nextInt();
+                System.out.print("SKU: ");
+                String sku = input.next();
+                System.out.print("Color: ");
+                String color = input.next();
 
-            FoodItem food = new FoodItem(name, price, department, stockQuantity, sku, color);
+                newItems.add(new FoodItem(name, price, department, stockQuantity, sku, color));
+                diplsayItems(1);
+                System.out.print("Add another item? (y/n): ");
+                if (input.next().equalsIgnoreCase("n")) {
+                    cont = false;
+                }
 
-            foodItems = new StoreItem[]{food};
-            baseInventory();
-            diplsayItems(choice);
-
+            }
         }
-
+        diplsayItems(1);
 
     }
 
