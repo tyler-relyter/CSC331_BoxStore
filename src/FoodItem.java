@@ -11,7 +11,6 @@ public class FoodItem extends StoreItem{
         this.Taste = Taste;
         this.Color = Color;
         this.Texture = texture;
-        super.setDepartment("Food");
 
     }
 
@@ -20,6 +19,7 @@ public class FoodItem extends StoreItem{
         this.Taste = "";
         this.Color = "";
         this.Texture = "";
+        super.setDepartment("Food");
 
     }
 
