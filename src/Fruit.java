@@ -22,7 +22,7 @@ public class Fruit extends FoodItem{
 
     @Override
     public String toString(){
-        return String.format("%sPrice: $%.2f", super.toString(), itemPrice());
+        return String.format("%sSource Country: %s", super.toString(), getFruitSource());
     }
 
 }
