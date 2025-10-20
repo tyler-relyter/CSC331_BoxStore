@@ -70,6 +70,7 @@ public abstract class ClothingItem extends StoreItem {
     // Override toString method to include clothing-specific details
     @Override
     public String toString() {
-        return super.toString() + ", Size: " + size + ", Color: " + color + ", Material: " + material;
+        return String.format("%s, Size: %s, Color: %s, Material: %s",
+                super.toString(), size, color, material);
     }
 }

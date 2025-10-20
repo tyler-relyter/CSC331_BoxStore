@@ -38,7 +38,7 @@ public class CleaningSupply extends HouseHoldItem{
     // Override toString method to include cleaning supply-specific details
     @Override
     public String toString() {
-        return super.toString() + ", Cleaning Type: " + cleaningType;
+        return String.format("%s, Cleaning Type: %s", super.toString(), cleaningType);
     }
 
 }

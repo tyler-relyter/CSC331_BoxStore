@@ -17,7 +17,6 @@ public abstract class HouseHoldItem extends StoreItem{
         this.description = description;
         this.room = room;
         this.material = material;
-        super.setDepartment("HouseHold");
     }
 
     //no-argument constructor
@@ -27,6 +26,7 @@ public abstract class HouseHoldItem extends StoreItem{
         this.description = null;
         this.room = null;
         this.material = null;
+        super.setDepartment("HouseHold");
     }
 
     // ---------- Getters ----------

@@ -42,7 +42,9 @@ public class OuterWear extends ClothingItem{
     // Override toString method to include outerwear-specific details
     @Override
     public String toString() {
-        return super.toString() + ", Waterproof: " + (isWaterproof ? "Yes" : "No");
+
+        return String.format("%s, Waterproof: %s", super.toString(), isWaterproof ? "Yes" : "No");
+
     }
 
 }

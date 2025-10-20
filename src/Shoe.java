@@ -39,7 +39,9 @@ public class Shoe extends ClothingItem{
     // Override toString method to include shoe-specific details
     @Override
     public String toString() {
-        return super.toString() + ", Shoe Type: " + shoeType;
+
+        return String.format("%s, Shoe Type: %s", super.toString(), shoeType);
+
     }
 }
 

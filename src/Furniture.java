@@ -38,6 +38,8 @@ public class Furniture extends HouseHoldItem {
     // Override toString method to include furniture-specific details
     @Override
     public String toString() {
-        return super.toString() + ", Furniture Type: " + type;
+
+        return String.format("%s, Type: %s", super.toString(), type);
+
     }
 }

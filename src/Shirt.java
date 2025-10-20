@@ -42,6 +42,8 @@ public class Shirt extends ClothingItem{
     // Override toString method to include shirt-specific details
     @Override
     public String toString() {
-        return super.toString() + ", Sleeve Length: " + sleeveLength;
+
+        return String.format("%s, Sleeve Length: %s", super.toString(), sleeveLength);
+
     }
 }
