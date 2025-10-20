@@ -1,10 +1,15 @@
 public class Vegetable extends FoodItem {
 
-    private boolean isOrganic;
+    private double vegPrice;
 
-    public Vegetable(String name, double price, String department, int stockQuantity, String sku, String Color, String Texture, String Taste, boolean isOrganic) {
-        super(name, price, department, stockQuantity, sku, Color, Texture, Taste);
-        this.isOrganic = isOrganic;
+    public Vegetable(String name, double price, String department, int stockQuantity, String sku, String Color,  double vegPrice) {
+        super(name, price, department, stockQuantity, sku, Color);
+        if (vegPrice <= 0){
+            this.vegPrice = 1.50;
+        }
+        else {
+            this.vegPrice = vegPrice;
+        }
     }
 
     //getters

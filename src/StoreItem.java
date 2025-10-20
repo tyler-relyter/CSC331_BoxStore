@@ -93,7 +93,26 @@ public abstract class StoreItem {
     public void setSku(String sku) { this.sku = sku; }
 
 
+    public abstract double itemPrice();
+    public void addStock(int stock){
+        if ( stock >= 0){
+            setStockQuantity(getStockQuantity() + stock);
+        }
+    }
 
+
+    public void removeStock(int stock){
+        if ( stock > 0){
+            int stockQuantity = getStockQuantity() - stock;
+
+            if (stockQuantity < 0){
+                setStockQuantity(0);
+            }
+            else{
+                setStockQuantity(stockQuantity);
+            }
+        }
+    }
 
     @Override
     public String toString() {
