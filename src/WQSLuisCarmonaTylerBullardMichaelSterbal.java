@@ -34,8 +34,8 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
 
 
         //Shoes
-        Shoe dressShoe = new Shoe("adidas",10.00, "Shoe",10,"A432DE",15.2, "Blakc", "leather","Dress Shoe");
-        Shoe tennis = new Shoe("nike",11.00, "Shoe", 10,"A438DE",11.5, "red", "Synthetic", "tennis");
+        Shoe dressShoe = new Shoe("adidas",10.00, "Shoe",10,"A432DE",15.2, "Blakc", "leather","Dress Shoe",.5);
+        Shoe tennis = new Shoe("nike",11.00, "Shoe", 10,"A438DE",11.5, "red", "Synthetic", "tennis",.6);
         newItems.add(tennis);
         newItems.add(dressShoe);
 

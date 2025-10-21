@@ -68,10 +68,7 @@ public abstract class ClothingItem extends StoreItem {
 
 
     @Override
-    public double itemPrice(){
-        return  super.getPrice()*(1 + this.getPrice());
-    }
-
+    public double itemPrice(){return super.getPrice();}
 
     // Override toString method to include clothing-specific details
     @Override
