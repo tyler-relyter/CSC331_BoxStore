@@ -1,24 +1,50 @@
-public class OuterWear extends ClothingItem {
+public class OuterWear extends ClothingItem{
+    private boolean isWaterproof;
 
-    private double outerWearTax;
+    // Constructor
 
-    public OuterWear(String name, double price, String department, int stockQuantity, String sku, String Color, double outerWearPrice ) {
-        super(name, price, department, stockQuantity, sku, Color);
-        this.outerWearTax = outerWearPrice;
+    /**
+     * Constructs an OuterWear item.
+     * @param name String Name of the outerwear
+     * @param price double Price of the outerwear
+     * @param department String Department
+     * @param stockQuantity int Stock quantity
+     * @param sku String SKU
+     * @param size String Size
+     * @param color String Color
+     * @param material String Material
+     * @param isWaterproof boolean Whether the outerwear is waterproof
+     */
+    public OuterWear(String name, double price, String department, int stockQuantity, String sku,
+                    double size, String color, String material, boolean isWaterproof) {
+        super(name, price, department, stockQuantity, sku, size, color, material);
+        this.isWaterproof = isWaterproof;
     }
 
-    //getter
-    public double getOuterWearTax() {return this.outerWearTax;}
+    // Getter
 
-    //setters
-    public void setOuterWearTax(double outerWearTax) {this.outerWearTax = outerWearTax;}
+    /**
+     * Get whether the outerwear is waterproof.
+     * @return isWaterproof boolean representing if the outerwear is waterproof.
+     */
+    public boolean isWaterproof() { return isWaterproof; }
+
+    // Setter
+
+    /**
+     * Set whether the outerwear is waterproof.
+     * @param isWaterproof boolean representing the new waterproof status of the outerwear.
+     */
+    public void setWaterproof(boolean isWaterproof) { this.isWaterproof = isWaterproof; }
 
 
+
+    // Override toString method to include outerwear-specific details
     @Override
-    public double itemPrice(){ return super.getPrice()*(1+ outerWearTax); }
+    public String toString() {
 
-    @Override
-    public String toString(){
-        return String.format("%s%nAmount: %s %n", super.toString(), getStockQuantity());
+        return String.format("%s%nWaterproof: %s", super.toString(), isWaterproof ? "Yes" : "No");
+
     }
+
 }

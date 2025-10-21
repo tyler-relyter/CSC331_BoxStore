@@ -1,27 +1,32 @@
 public class CleaningSupply extends HouseHoldItem {
 
     private String scent;
+    private double cleaningTax;
 
     // Full constructor
-    public CleaningSupply(String name, double price, String department, int stockQuantity, String sku, String material, String scent) {
+    public CleaningSupply(String name, double price, String department, int stockQuantity, String sku, String material, String scent, double cleaningTax) {
         super(name, price, department, stockQuantity, sku, material);
         super.setDepartment("Household - Cleaning");
         this.scent = scent;
-    }
-
-    // Minimal constructor
-    public CleaningSupply(String name, double price, String department, int stockQuantity, String sku, String material) {
-        super(name, price, department, stockQuantity, sku, material);
-        super.setDepartment("Household - Cleaning");
-        this.scent = "";
+        this.cleaningTax = cleaningTax;
     }
 
     // getter/setter
     public String getScent() { return scent; }
     public void setScent(String scent) { this.scent = scent; }
+    public double getCleaningTax() { return cleaningTax; }
 
+    // Setter
+
+    /**
+     *
+     * @param cleaningTax double
+     */
+    public void  setCleaningTax(double cleaningTax) {this.cleaningTax = cleaningTax; }
     @Override
-    public double itemPrice() { return super.getPrice(); }
+    public double itemPrice(){
+        return  super.getPrice()*(1 + this.getCleaningTax());
+    }
 
     @Override
     public String toString() {

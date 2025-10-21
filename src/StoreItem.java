@@ -5,6 +5,10 @@ public abstract class StoreItem {
     private String department;
     private int stockQuantity;
     private String sku; // Stock Keeping Unit
+    protected final double TAX_RATE = 0.07; // 7% tax rate
+
+
+    // Parameterized constructor
 
     public StoreItem(String name, double price, String department, int stockQuantity, String sku) {
         this.name = name;
@@ -12,6 +16,7 @@ public abstract class StoreItem {
         this.department = department;
         this.stockQuantity = stockQuantity;
         this.sku = sku;
+
     }
 
     // no-argument constructor
