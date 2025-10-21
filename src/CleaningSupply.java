@@ -1,5 +1,6 @@
 public class CleaningSupply extends HouseHoldItem{
     private String cleaningType; // Example: detergent, disinfectant, glass cleaner
+    private double cleaningTax;
 
     // Constructor
     /**
@@ -19,6 +20,7 @@ public class CleaningSupply extends HouseHoldItem{
                          String brand, String description, String room, String material, String cleaningType) {
         super(name, price, department, stockQuantity, sku, brand, description, room, material);
         this.cleaningType = cleaningType;
+        this.cleaningTax = price;
     }
 
     // Getter
@@ -28,17 +30,29 @@ public class CleaningSupply extends HouseHoldItem{
      */
     public String getCleaningType() { return cleaningType; }
 
-    // Setter
     /**
-     * Set the type of cleaning supply.
-     * @param cleaningType String representing the new type of cleaning supply.
+     *
+     * @return double tax of item
      */
-    public void setCleaningType(String cleaningType) { this.cleaningType = cleaningType; }
+    public double getCleaningTax() { return cleaningTax; }
+
+    // Setter
+
+    /**
+     *
+     * @param cleaningTax double
+     */
+    public void  setCleaningTax(double cleaningTax) {this.cleaningTax = cleaningTax; }
+
+    @Override
+    public double itemPrice(){
+        return  super.getPrice()*(1 + this.getCleaningTax());
+    }
 
     // Override toString method to include cleaning supply-specific details
     @Override
     public String toString() {
-        return String.format("%s, Cleaning Type: %s", super.toString(), cleaningType);
+        return String.format("%s, Cleaning Type: %s %nPrice After Tax: %s", super.toString(), cleaningType, itemPrice());
     }
 
 }

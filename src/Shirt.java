@@ -16,7 +16,7 @@ public class Shirt extends ClothingItem{
      * @param sleeveLength String Sleeve length (e.g., short, long, sleeveless)
      */
     public Shirt(String name, double price, String department, int stockQuantity, String sku,
-                 String size, String color, String material, String sleeveLength) {
+                 double size, String color, String material, String sleeveLength) {
         super(name, price, department, stockQuantity, sku, size, color, material);
         this.sleeveLength = sleeveLength;
     }

@@ -10,10 +10,10 @@ public class Fruit extends FoodItem{
     }
 
     //getter
-    public double getfruitPrice(){return fruitTax;} ;
+    public double getFruitTax(){return fruitTax;} ;
 
     //setter
-    public void setfruitPrice(double fruitPrice){this.fruitTax =fruitPrice;}
+    public void setFruitTax(double fruitPrice){this.fruitTax = fruitPrice;}
 
     @Override
     public double itemPrice(){
@@ -22,7 +22,7 @@ public class Fruit extends FoodItem{
 
     @Override
     public String toString(){
-        return String.format("%sSource Country: %s", super.toString(), getFruitSource());
+        return String.format("%s %fPrice After Tax:", super.toString(), itemPrice());
     }
 
 }

@@ -82,6 +82,8 @@ public abstract class ElectronicsItem extends StoreItem {
      */
     public void setWarrantyPeriod(int warrantyPeriod) { this.warrantyPeriod = warrantyPeriod; }
 
+    @Override
+    public double itemPrice(){return super.getPrice();}
 
 
     // Override toString method to include electronics-specific details

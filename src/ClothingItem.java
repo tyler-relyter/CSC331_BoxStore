@@ -1,5 +1,5 @@
 public abstract class ClothingItem extends StoreItem {
-    private String size;
+    private double size;
     private String color;
     private String material;
 
@@ -17,7 +17,7 @@ public abstract class ClothingItem extends StoreItem {
      * @param material String Material
      */
     public ClothingItem(String name, double price, String department, int stockQuantity, String sku,
-                        String size, String color, String material) {
+                        double size, String color, String material) {
         super(name, price, department, stockQuantity, sku);
         this.size = size;
         this.color = color;
@@ -29,9 +29,10 @@ public abstract class ClothingItem extends StoreItem {
 
     /**
      * Get the size of the clothing item.
+     *
      * @return size String representing the size of the clothing item.
      */
-    public String getSize() { return size; }
+    public double getSize() { return size; }
 
     /**
      * Get the color of the clothing item.
@@ -51,7 +52,7 @@ public abstract class ClothingItem extends StoreItem {
      * Set the size of the clothing item.
      * @param size String representing the new size of the clothing item.
      */
-    public void setSize(String size) { this.size = size; }
+    public void setSize(double size) { this.size = size; }
 
     /**
      * Set the color of the clothing item.
@@ -65,6 +66,11 @@ public abstract class ClothingItem extends StoreItem {
      */
     public void setMaterial(String material) { this.material = material; }
 
+
+    @Override
+    public double itemPrice(){
+        return  super.getPrice()*(1 + this.getPrice());
+    }
 
 
     // Override toString method to include clothing-specific details

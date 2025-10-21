@@ -12,26 +12,20 @@ public class Vegetable extends FoodItem {
         }
     }
 
+    //setter
+    public void setVegPrice(double vegPrice) {this.vegPrice = vegPrice;}
+
     //getters
+    public double getVegPrice() {return vegPrice;}
 
-    /**
-     * Check if the vegetable is organic.
-     * @return isOrganic boolean representing if the vegetable is organic.
-     */
-    public boolean getIsOrganic() { return isOrganic; }
-
-    //setters
-
-    /**
-     * Set whether the vegetable is organic.
-     * @param isOrganic boolean representing the new organic status of the vegetable.
-     */
-    public void setIsOrganic(boolean isOrganic) { this.isOrganic = isOrganic; }
-
+    @Override
+    public double itemPrice(){
+        return  super.getPrice()*(1 + this.vegPrice);
+    }
 
     // Override toString method to include vegetable-specific details
     @Override
-    public String toString() {
-        return String.format("%sIs Organic: %s", super.toString(), getIsOrganic() ? "Yes" : "No");
+    public String toString(){
+        return String.format("%s %fPrice After Tax:", super.toString(), itemPrice());
     }
 }

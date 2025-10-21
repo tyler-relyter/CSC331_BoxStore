@@ -15,7 +15,7 @@ public class Shoe extends ClothingItem{
      * @param shoeType String Type of shoe
      */
     public Shoe(String name, double price, String department, int stockQuantity, String sku,
-                 String size, String color, String material, String shoeType) {
+                 double size, String color, String material, String shoeType) {
         super(name, price, department, stockQuantity, sku, size, color, material);
         this.shoeType = shoeType;
     }

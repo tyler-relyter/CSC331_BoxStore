@@ -8,6 +8,7 @@ public class TV extends ElectronicsItem {
     private String screenType; // e.g., LED, OLED, QLED
     private double screenSize; // in inches
     private boolean isSmartTV;
+    private double tvTax;
 
     // Constructor
 
@@ -27,11 +28,12 @@ public class TV extends ElectronicsItem {
      */
     public TV(String name, double price, String department, int stockQuantity, String sku,
               String brand, String model, int warrantyPeriod,
-              String screenType, double screenSize, boolean isSmartTV) {
+              String screenType, double screenSize, boolean isSmartTV, double tvTax) {
         super(name, price, department, stockQuantity, sku, brand, model, warrantyPeriod);
         this.screenType = screenType;
         this.screenSize = screenSize;
         this.isSmartTV = isSmartTV;
+        this.tvTax = tvTax;
     }
 
     // no-argument constructor
@@ -45,6 +47,7 @@ public class TV extends ElectronicsItem {
 
     // Getters
 
+    public double getTvTax() {return tvTax;}
     /**
      * Get the screen type of the TV.
      * @return screenType String representing the screen type of the TV.
@@ -65,6 +68,8 @@ public class TV extends ElectronicsItem {
 
     // Setters
 
+    public void setTvTax(double tvTax) { this.tvTax = tvTax; }
+
     /**
      * Set the screen type of the TV.
      * @param screenType String representing the new screen type of the TV.
@@ -82,6 +87,11 @@ public class TV extends ElectronicsItem {
      * @param smartTV boolean representing if the TV is a Smart TV.
      */
     public void setSmartTV(boolean smartTV) { this.isSmartTV = smartTV; }
+
+    @Override
+    public double itemPrice(){
+        return  super.getPrice()*(1 + this.tvTax);
+    }
 
     @Override
     public String toString() {

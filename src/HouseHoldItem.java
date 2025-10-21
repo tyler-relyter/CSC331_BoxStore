@@ -59,6 +59,9 @@ public abstract class HouseHoldItem extends StoreItem{
     }
 
     @Override
+    public double itemPrice(){return super.getPrice();}
+
+    @Override
     public String toString() {
         return String.format("%s [%s] %s (%s) - $%.2f, qty=%d, room=%s, material=%s",
                 getCategory(), getSku(), getName(), (brand == null ? "-" : brand),

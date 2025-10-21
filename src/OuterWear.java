@@ -16,7 +16,7 @@ public class OuterWear extends ClothingItem{
      * @param isWaterproof boolean Whether the outerwear is waterproof
      */
     public OuterWear(String name, double price, String department, int stockQuantity, String sku,
-                    String size, String color, String material, boolean isWaterproof) {
+                    double size, String color, String material, boolean isWaterproof) {
         super(name, price, department, stockQuantity, sku, size, color, material);
         this.isWaterproof = isWaterproof;
     }
