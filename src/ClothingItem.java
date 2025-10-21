@@ -1,4 +1,4 @@
-public abstract class ClothingItem extends StoreItem {
+public class ClothingItem extends StoreItem {
     private double size;
     private String color;
     private String material;
@@ -22,7 +22,6 @@ public abstract class ClothingItem extends StoreItem {
         this.size = size;
         this.color = color;
         this.material = material;
-        super.setDepartment("Clothing");
     }
 
     // Getters
