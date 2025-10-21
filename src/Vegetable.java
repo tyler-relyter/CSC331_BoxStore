@@ -12,20 +12,20 @@ public class Vegetable extends FoodItem {
         }
     }
 
+    //setter
+    public void setVegPrice(double vegPrice) {this.vegPrice = vegPrice;}
+
     //getters
     public double getVegPrice() {return vegPrice;}
 
-    //setters
-    public void setVegPrice(double vegPrice) {if (vegPrice <= 0){ this.vegPrice = vegPrice; }}
-
-    //Other methods
-
-
     @Override
-    public double itemPrice(){ return getVegPrice() + super.itemPrice(); }
+    public double itemPrice(){
+        return  super.getPrice()*(1 + this.vegPrice);
+    }
 
+    // Override toString method to include vegetable-specific details
     @Override
     public String toString(){
-        return String.format("%s%n Vegetable: %.2f",super.itemPrice(), vegPrice);
+        return String.format("%s %fPrice After Tax:", super.toString(), itemPrice());
     }
 }
