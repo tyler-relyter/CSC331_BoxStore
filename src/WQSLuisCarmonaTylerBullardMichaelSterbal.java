@@ -58,10 +58,10 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
         newItems.add(lgTV);
 
         // Household Items
-        CleaningSupply detergent = new CleaningSupply("Laundry Detergent", 15.99, "HouseHold", 20, "H12345", "CleanCo", "Cleans clothes effectively", "Laundry Room", "Liquid", "Detergent");
-        CleaningSupply glassCleaner = new CleaningSupply("Glass Cleaner", 7.99, "HouseHold", 15, "H12346", "Shiny", "Leaves glass streak-free", "Kitchen", "Spray Bottle", "Glass Cleaner");
-        Furniture chair = new Furniture("Dining Chair", 49.99, "HouseHold", 10, "H22334", "FurniCo", "Comfortable wooden dining chair", "Dining Room", "Wood", "Chair");
-        Furniture table = new Furniture("Coffee Table", 89.99, "HouseHold", 5, "H22335", "FurniCo", "Stylish coffee table", "Living Room", "Glass", "Table");
+        CleaningSupply detergent = new CleaningSupply("Laundry Detergent", 15.99, "HouseHold", 20, "H12345", "CleanCo", "Cleans clothes effectively",  .2);
+        CleaningSupply glassCleaner = new CleaningSupply("Glass Cleaner", 7.99, "HouseHold", 15, "H12346", "Shiny", "Leaves glass streak-free",  .2);
+        Furniture chair = new Furniture("Dining Chair", 49.99, "HouseHold", 10, "H22334", "Wood", "Chair", .2);
+        Furniture table = new Furniture("Coffee Table", 89.99, "HouseHold", 5, "H22335", "Wood", "Table", .2);
         newItems.add(detergent);
         newItems.add(glassCleaner);
         newItems.add(chair);
@@ -124,16 +124,16 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
             }
         }
 
-//        if (inventoryChoice == 2) {
-//
-//            System.out.println("-------------Available House Hold Items Items Inventories------------");
-//            for (StoreItem currentItem : newItems) {
-//                if (currentItem instanceof <<ClothingItem>>) {
-//                    System.out.printf("Name: %s |Quantity: %d |%S Department", currentItem.getName(), currentItem.getStockQuantity(), currentItem.getDepartment());
-//                    System.out.println("-----------------------------------------");
-//                }
-//            }
-//        }
+        if (inventoryChoice == 2) {
+
+            System.out.println("-------------Available House Hold Items Items Inventories------------");
+            for (StoreItem currentItem : newItems) {
+                if (currentItem instanceof HouseHoldItem) {
+                    System.out.printf("Name: %s |Quantity: %d |%S Department%n", currentItem.getName(), currentItem.getStockQuantity(), currentItem.getDepartment());
+                    System.out.println("-----------------------------------------");
+                }
+            }
+        }
 
 //        if (inventoryChoice == 3) {
 //
