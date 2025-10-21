@@ -333,16 +333,16 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                 int stockQuantity = input.nextInt();
                 System.out.print("SKU: ");
                 String sku = input.next();
-                System.out.print("Size: ");
-                double size = input.nextDouble();
-                input.nextLine();
-                System.out.print("Color: ");
-                String color = input.next();
-                System.out.print("Material:");
+                System.out.print("Material: ");
                 String material = input.next();
+                input.nextLine();
+                System.out.print("Scent: ");
+                String scent = input.next();
+                System.out.print("CleaningTax:");
+                double cleaningTax = input.nextDouble();
 
 
-                newItems.add(new ClothingItem(name, price, department, stockQuantity, sku, size, color,material));
+                newItems.add(new CleaningSupply(name, price, department, stockQuantity, sku, material, scent, cleaningTax));
                 System.out.print("Add another item? (y/n): ");
                 if (input.next().equalsIgnoreCase("n")) {
                     cont = false;
