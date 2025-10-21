@@ -85,10 +85,7 @@ public class Phone extends ElectronicsItem {
 
     @Override
     public String toString() {
-        return String.format(super.toString() +
-                             "Operating System: %s\n" +
-                             "Storage: %d GB\n" +
-                             "Screen Size: %.2f inches\n",
-                             this.operatingSystem, this.storage, this.screenSize);
+        return String.format("%s%nOperating System: %s%nStorage: %d GB%nScreen Size: %.2f inches",
+                super.toString(), operatingSystem, storage, screenSize);
     }
 }

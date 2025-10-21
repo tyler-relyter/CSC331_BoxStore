@@ -14,30 +14,58 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
     }
 
     public static void baseInventory() {
-        Fruit Apple = new Fruit("Apple", 5.00, "Fruit", 10, "A215", "red",  .3);
-        Fruit Mango = new Fruit("Mango", 5.00, "Fruit", 3, "A215", "red",  .4);
-        newItems.add(Apple);
-        newItems.add(Mango);
+        Fruit apple = new Fruit("Apple", 5.00, "Fruit", 10, "A215", "red",  .3);
+        Fruit mango = new Fruit("Mango", 5.00, "Fruit", 3, "A215", "red",  .4);
+        newItems.add(apple);
+        newItems.add(mango);
 
         // Vegies
-        Vegetable Broccoli = new Vegetable("Broccoli", 5.00, "Vegetables", 5, "A215", "red",  .2);
-        Vegetable Spinach = new Vegetable("Spinach", 5.00, "Vegetables", 10, "A215", "red",  .3);
-        newItems.add(Broccoli);
-        newItems.add(Spinach);
+        Vegetable broccoli = new Vegetable("Broccoli", 5.00, "Vegetables", 5, "A215", "red",  .2);
+        Vegetable spinach = new Vegetable("Spinach", 5.00, "Vegetables", 10, "A215", "red",  .3);
+        newItems.add(broccoli);
+        newItems.add(spinach);
 
         // Shelf Stable
         ShelfStable beans = new ShelfStable("Beans", 10.5, "Shelf Stable", 5, "A215", "red",  .2);
         newItems.add(beans);
 
         // Clothing Items
+        OuterWear jacket = new OuterWear("North Face", 50.00, "Clothing", 10, "A432DE", 12.0, "Black", "Nylon", true);
+        OuterWear rainCoat = new OuterWear("Columbia", 60.00, "Clothing", 10, "A432DE", 11.0, "Yellow", "Polyester", true);
+        Shirt tshirt = new Shirt("Hanes", 8.00, "Clothing", 10, "A432DE", 9.0, "White", "Cotton", "T-Shirt");
+        Shirt polo = new Shirt("Polo", 20.00, "Clothing", 10, "A432DE", 12.0, "Blue", "Cotton", "Polo Shirt");
+        Shoe tennisShoe = new Shoe("nike", 11.00, "Clothing", 10, "A432DE", 11.5, "Red", "Synthetic", "Tennis Shoe", .6);
+        Shoe boots = new Shoe("Timberland", 80.00, "Clothing", 10, "A432DE", 10.5, "Brown", "Leather", "Boots", .7);
+        newItems.add(jacket);
+        newItems.add(rainCoat);
+        newItems.add(tshirt);
+        newItems.add(polo);
+        newItems.add(tennisShoe);
+        newItems.add(boots);
 
+        // Electronics
+        Laptop dellLaptop = new Laptop("Dell XPS 13", 999.99, "Electronics", 5, "E12345", "Dell", "XPS 13", 24, "Intel i7", 16, 512, 13.3);
+        Laptop hpLaptop = new Laptop("HP Spectre x360", 1199.99, "Electronics", 3, "E12346", "HP", "Spectre x360", 24, "Intel i9", 32, 1024, 17.0);
+        Phone iphone = new Phone("iPhone 14", 799.99, "Electronics", 10, "E22334", "Apple", "iPhone 14", 12, "iOS", 128, 6.1);
+        Phone samsungPhone = new Phone("Samsung Galaxy S22", 749.99, "Electronics", 8, "E22335", "Samsung", "Galaxy S22", 12, "Android", 256, 6.2);
+        TV samsungTV = new TV("Samsung QLED", 1499.99, "Electronics", 4, "E32345", "Samsung", "Samsung 55 QLED", 36, "QLED", 55.0, true, 0.07);
+        TV lgTV = new TV("LG OLED", 1799.99, "Electronics", 2, "E32346", "LG", "LG 65 OLED", 36, "OLED",65.0, true, 0.07);
+        newItems.add(dellLaptop);
+        newItems.add(hpLaptop);
+        newItems.add(iphone);
+        newItems.add(samsungPhone);
+        newItems.add(samsungTV);
+        newItems.add(lgTV);
 
-
-        //Shoes
-        Shoe dressShoe = new Shoe("adidas",10.00, "Shoe",10,"A432DE",15.2, "Blakc", "leather","Dress Shoe",.5);
-        Shoe tennis = new Shoe("nike",11.00, "Shoe", 10,"A438DE",11.5, "red", "Synthetic", "tennis",.6);
-        newItems.add(tennis);
-        newItems.add(dressShoe);
+        // Household Items
+        CleaningSupply detergent = new CleaningSupply("Laundry Detergent", 15.99, "HouseHold", 20, "H12345", "CleanCo", "Cleans clothes effectively", "Laundry Room", "Liquid", "Detergent");
+        CleaningSupply glassCleaner = new CleaningSupply("Glass Cleaner", 7.99, "HouseHold", 15, "H12346", "Shiny", "Leaves glass streak-free", "Kitchen", "Spray Bottle", "Glass Cleaner");
+        Furniture chair = new Furniture("Dining Chair", 49.99, "HouseHold", 10, "H22334", "FurniCo", "Comfortable wooden dining chair", "Dining Room", "Wood", "Chair");
+        Furniture table = new Furniture("Coffee Table", 89.99, "HouseHold", 5, "H22335", "FurniCo", "Stylish coffee table", "Living Room", "Glass", "Table");
+        newItems.add(detergent);
+        newItems.add(glassCleaner);
+        newItems.add(chair);
+        newItems.add(table);
 
     }
     public static void Casechosen() {

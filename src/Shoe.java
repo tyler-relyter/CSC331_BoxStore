@@ -9,7 +9,7 @@ public class Shoe extends ClothingItem{
      * @param department String Department
      * @param stockQuantity int Stock quantity
      * @param sku String SKU
-     * @param size String Size
+     * @param size  Size
      * @param color String Color
      * @param material String Material
      * @param shoeType String Type of shoe

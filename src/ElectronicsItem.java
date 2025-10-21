@@ -89,8 +89,8 @@ public abstract class ElectronicsItem extends StoreItem {
     // Override toString method to include electronics-specific details
     @Override
     public String toString() {
-        return String.format(super.toString() + ", Brand: %s, Model: %s, Warranty Period: %d months",
-                this.brand, this.brand, this.warrantyPeriod);
+        return String.format("%s\nBrand: %s\nModel: %s\nWarranty Period: %d months",
+                super.toString(), brand, model, warrantyPeriod);
     }
 
 }

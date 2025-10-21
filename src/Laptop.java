@@ -101,7 +101,7 @@ public class Laptop extends ElectronicsItem {
 
     @Override
     public String toString() {
-        return String.format(super.toString() + ", Processor: %s, RAM: %d GB, Storage: %d GB, Screen Size: %.1f inches",
-                             this.processor, this.ram, this.storage, this.screenSize);
+        return String.format("%s%nProcessor: %s%nRAM: %d GB%nStorage: %d GB%nScreen Size: %.1f inches%n",
+                super.toString(), this.processor, this.ram, this.storage, this.screenSize);
     }
 }

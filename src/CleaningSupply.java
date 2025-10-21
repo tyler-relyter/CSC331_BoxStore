@@ -20,7 +20,15 @@ public class CleaningSupply extends HouseHoldItem{
                          String brand, String description, String room, String material, String cleaningType) {
         super(name, price, department, stockQuantity, sku, brand, description, room, material);
         this.cleaningType = cleaningType;
-        this.cleaningTax = price;
+        this.cleaningTax = 0.05; // Default tax rate for cleaning supplies
+    }
+
+    // No-argument constructor
+    public CleaningSupply() {
+        super();
+        this.cleaningType = "";
+        this.cleaningTax = 0.05; // Default tax rate for cleaning supplies
+        super.setDepartment("Household");
     }
 
     // Getter

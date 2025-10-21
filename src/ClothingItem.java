@@ -12,7 +12,7 @@ public class ClothingItem extends StoreItem {
      * @param department String Department
      * @param stockQuantity int Stock quantity
      * @param sku String SKU
-     * @param size String Size
+     * @param size double Size
      * @param color String Color
      * @param material String Material
      */
@@ -22,6 +22,15 @@ public class ClothingItem extends StoreItem {
         this.size = size;
         this.color = color;
         this.material = material;
+    }
+
+    // No-argument constructor
+    public ClothingItem() {
+        super();
+        this.size = 0.0;
+        this.color = "";
+        this.material = "";
+        super.setDepartment("Clothing");
     }
 
     // Getters
@@ -72,7 +81,7 @@ public class ClothingItem extends StoreItem {
     // Override toString method to include clothing-specific details
     @Override
     public String toString() {
-        return String.format("%s, Size: %s, Color: %s, Material: %s",
-                super.toString(), size, color, material);
+        return String.format("%s%nSize: %s%nColor: %s%nMaterial: %s",
+                super.toString(), this.size, this.color, this.material);
     }
 }

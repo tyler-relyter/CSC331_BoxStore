@@ -39,7 +39,7 @@ public class Furniture extends HouseHoldItem {
     @Override
     public String toString() {
 
-        return String.format("%s, Type: %s", super.toString(), type);
+        return String.format("%s, Type: %s", super.toString(), this.type);
 
     }
 }
