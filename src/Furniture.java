@@ -6,7 +6,6 @@ public class Furniture extends HouseHoldItem {
     // Full constructor
     public Furniture(String name, double price, String department, int stockQuantity, String sku, String material, String type, double furnitureTax) {
         super(name, price, department, stockQuantity, sku, material);
-        super.setDepartment("Household - Furniture");
         this.type = type;
         this.furnitureTax = furnitureTax;
     }
@@ -23,7 +22,7 @@ public class Furniture extends HouseHoldItem {
     }
 
     @Override
-    public String toString() {
-        return String.format("%sType: %s%n", super.toString(), type);
+    public String toString(){
+        return String.format("%s|%-15s|$%-15.2f|", super.toString(),getType(), itemPrice());
     }
 }

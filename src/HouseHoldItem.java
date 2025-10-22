@@ -5,7 +5,6 @@ public class HouseHoldItem extends StoreItem {
     // Full constructor
     public HouseHoldItem(String name, double price, String department, int stockQuantity, String sku, String material) {
         super(name, price, department, stockQuantity, sku);
-        super.setDepartment("Household");
         this.material = material;
     }
 
@@ -24,8 +23,7 @@ public class HouseHoldItem extends StoreItem {
     public double itemPrice() { return super.getPrice(); }
 
     @Override
-    public String toString() {
-        return String.format("%s%nAmount: %d %nDepartment: %s%nMaterial: %s%n",
-                super.toString(), getStockQuantity(), getDepartment(), material);
+    public String toString(){
+        return String.format("%s%-15s", super.toString(), getMaterial());
     }
 }

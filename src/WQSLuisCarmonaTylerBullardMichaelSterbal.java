@@ -26,7 +26,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
         newItems.add(spinach);
 
         // Shelf Stable
-        ShelfStable beans = new ShelfStable("Beans", 10.5, "Shelf Stable", 5, "A215", "black",  .2);
+        ShelfStable beans = new ShelfStable("Beans", 10.5, "Shelf Stable", 5, "A215", "Black",  .2);
         newItems.add(beans);
 
         // Clothing Items
@@ -58,10 +58,10 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
         newItems.add(lgTV);
 
         // Household Items
-        CleaningSupply detergent = new CleaningSupply("Detergent", 15.99, "HouseHold", 20, "H12345", "CleanCo", "Cleans clothes effectively",  .2);
-        CleaningSupply glassCleaner = new CleaningSupply("Glass Cleaner", 7.99, "HouseHold", 15, "H12346", "Shiny", "Leaves glass streak-free",  .2);
-        Furniture chair = new Furniture("Dining Chair", 49.99, "HouseHold", 10, "H22334", "Wood", "Chair", .2);
-        Furniture table = new Furniture("Coffee Table", 89.99, "HouseHold", 5, "H22335", "Wood", "Table", .2);
+        CleaningSupply detergent = new CleaningSupply("Detergent", 15.99, "HouseHold", 20, "H12345", "CleanCo", "Lavender",  .2);
+        CleaningSupply glassCleaner = new CleaningSupply("Glass Cleaner", 7.99, "HouseHold", 15, "H12346", "Shiny", "Plain",  .2);
+        Furniture chair = new Furniture("Dining Chair", 49.99, "Furniture", 10, "H22334", "Wood", "Chair", .2);
+        Furniture table = new Furniture("Coffee Table", 89.99, "Furniture", 5, "H22335", "Wood", "Table", .2);
         newItems.add(detergent);
         newItems.add(glassCleaner);
         newItems.add(chair);
@@ -128,27 +128,27 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
 
         if (inventoryChoice == 2) {
 
-            System.out.println("+--------------------------------Available Food Items Inventories--------------------------------+");
-            System.out.println("Name           |Department     |Stock          |SKU            |Color           |Price           |");
-            System.out.println("+--------------+---------------+---------------+---------------+----------------+----------------+");
+            System.out.println("+--------------------------------Available House Hold Items Inventories------------------------------------------+");
+            System.out.println("Name           |Department     |Stock          |SKU            |Color           |Scent          |Price           |");
+            System.out.println("+--------------+---------------+---------------+---------------+----------------+---------------+----------------+");
             for (StoreItem currentItem : newItems) {
                 if (currentItem instanceof HouseHoldItem) {
                     System.out.println(currentItem);
-                    System.out.println("+--------------+---------------+---------------+---------------+----------------+----------------+");
+                    System.out.println("+--------------+---------------+---------------+---------------+----------------+---------------+----------------+");
                 }
             }
         }
 
-//        if (inventoryChoice == 3) {
-//
-//            System.out.println("-------------Available Electronic Items Inventories------------");
-//            for (StoreItem currentItem : newItems) {
-//                if (currentItem instanceof <<ElectronicsItem>>) {
-//                    System.out.printf("%s: %d%n %S", currentItem.getName(), currentItem.getStockQuantity(), currentItem.getDepartment());
-//                    System.out.println("-----------------------------------------");
-//                }
-//            }
-//        }
+        if (inventoryChoice == 3) {
+
+            System.out.println("-------------Available Electronic Items Inventories------------");
+            for (StoreItem currentItem : newItems) {
+                if (currentItem instanceof ElectronicsItem) {
+                    System.out.printf("%s: %d%n %S", currentItem.getName(), currentItem.getStockQuantity(), currentItem.getDepartment());
+                    System.out.println("-----------------------------------------");
+                }
+            }
+        }
 
         if (inventoryChoice == 4) {
 

@@ -6,7 +6,6 @@ public class CleaningSupply extends HouseHoldItem {
     // Full constructor
     public CleaningSupply(String name, double price, String department, int stockQuantity, String sku, String material, String scent, double cleaningTax) {
         super(name, price, department, stockQuantity, sku, material);
-        super.setDepartment("Household - Cleaning");
         this.scent = scent;
         this.cleaningTax = cleaningTax;
     }
@@ -29,7 +28,7 @@ public class CleaningSupply extends HouseHoldItem {
     }
 
     @Override
-    public String toString() {
-        return String.format("%sScent: %s%n", super.toString(), scent);
+    public String toString(){
+        return String.format("%s|%-15s|$%-15.2f|", super.toString(),getScent(), itemPrice());
     }
 }
