@@ -311,8 +311,61 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                 String sku = input.next();
                 System.out.print("Color: ");
                 String color = input.next();
+                System.out.print("Tax (enter as decimal): ");
+                double fruitTax = input.nextDouble();
 
-                newItems.add(new FoodItem(name, price, department, stockQuantity, sku, color));
+                newItems.add(new Fruit(name, price, department, stockQuantity, sku, color, fruitTax));
+                System.out.print("Add another item? (y/n): ");
+                if (input.next().equalsIgnoreCase("n")) {
+                    cont = false;
+                }
+
+            }
+            if (choice == 2) {
+                System.out.println("Please enter the following information");
+                System.out.print("Name: ");
+                String name = input.next();
+                System.out.print("Price: ");
+                double price = input.nextDouble();
+                input.nextLine();
+                System.out.print("Department: ");
+                String department = input.next();
+                System.out.print("Quantity: ");
+                int stockQuantity = input.nextInt();
+                System.out.print("SKU: ");
+                String sku = input.next();
+                System.out.print("Color: ");
+                String color = input.next();
+                System.out.print("Tax (enter as decimal): ");
+                double vegetableTax = input.nextDouble();
+
+                newItems.add(new Vegetable(name, price, department, stockQuantity, sku, color, vegetableTax));
+                System.out.print("Add another item? (y/n): ");
+                if (input.next().equalsIgnoreCase("n")) {
+                    cont = false;
+                }
+
+            }
+
+            if (choice ==3) {
+                System.out.println("Please enter the following information");
+                System.out.print("Name: ");
+                String name = input.next();
+                System.out.print("Price: ");
+                double price = input.nextDouble();
+                input.nextLine();
+                System.out.print("Department: ");
+                String department = input.next();
+                System.out.print("Quantity: ");
+                int stockQuantity = input.nextInt();
+                System.out.print("SKU: ");
+                String sku = input.next();
+                System.out.print("Color: ");
+                String color = input.next();
+                System.out.print("Tax (enter as decimal): ");
+                double vegetableTax = input.nextDouble();
+
+                newItems.add(new ShelfStable(name, price, department, stockQuantity, sku, color, vegetableTax));
                 System.out.print("Add another item? (y/n): ");
                 if (input.next().equalsIgnoreCase("n")) {
                     cont = false;

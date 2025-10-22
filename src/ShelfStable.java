@@ -1,6 +1,7 @@
 public class ShelfStable extends FoodItem {
     private double shlefSatableTax;
 
+
     public ShelfStable(String name, double price, String department, int stockQuantity, String sku, String Color, double shlefSatableTax) {
         super(name, price, department, stockQuantity, sku, Color);
         this.shlefSatableTax = shlefSatableTax;
