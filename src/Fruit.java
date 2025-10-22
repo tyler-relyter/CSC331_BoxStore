@@ -22,7 +22,7 @@ public class Fruit extends FoodItem{
 
     @Override
     public String toString(){
-        return String.format("%s %fPrice After Tax:", super.toString(), itemPrice());
+        return String.format("%s$%-15.2f|", super.toString(), itemPrice());
     }
 
 }

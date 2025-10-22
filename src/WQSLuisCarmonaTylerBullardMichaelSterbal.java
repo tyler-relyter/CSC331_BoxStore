@@ -15,18 +15,18 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
 
     public static void baseInventory() {
         Fruit apple = new Fruit("Apple", 5.00, "Fruit", 10, "A215", "red",  .3);
-        Fruit mango = new Fruit("Mango", 5.00, "Fruit", 3, "A215", "red",  .4);
+        Fruit mango = new Fruit("Mango", 5.00, "Fruit", 3, "A215", "Yellow",  .4);
         newItems.add(apple);
         newItems.add(mango);
 
         // Vegies
-        Vegetable broccoli = new Vegetable("Broccoli", 5.00, "Vegetables", 5, "A215", "red",  .2);
-        Vegetable spinach = new Vegetable("Spinach", 5.00, "Vegetables", 10, "A215", "red",  .3);
+        Vegetable broccoli = new Vegetable("Broccoli", 5.00, "Vegetables", 5, "A215", "Green",  .2);
+        Vegetable spinach = new Vegetable("Spinach", 5.00, "Vegetables", 10, "A215", "Green",  .3);
         newItems.add(broccoli);
         newItems.add(spinach);
 
         // Shelf Stable
-        ShelfStable beans = new ShelfStable("Beans", 10.5, "Shelf Stable", 5, "A215", "red",  .2);
+        ShelfStable beans = new ShelfStable("Beans", 10.5, "Shelf Stable", 5, "A215", "black",  .2);
         newItems.add(beans);
 
         // Clothing Items
@@ -58,7 +58,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
         newItems.add(lgTV);
 
         // Household Items
-        CleaningSupply detergent = new CleaningSupply("Laundry Detergent", 15.99, "HouseHold", 20, "H12345", "CleanCo", "Cleans clothes effectively",  .2);
+        CleaningSupply detergent = new CleaningSupply("Detergent", 15.99, "HouseHold", 20, "H12345", "CleanCo", "Cleans clothes effectively",  .2);
         CleaningSupply glassCleaner = new CleaningSupply("Glass Cleaner", 7.99, "HouseHold", 15, "H12346", "Shiny", "Leaves glass streak-free",  .2);
         Furniture chair = new Furniture("Dining Chair", 49.99, "HouseHold", 10, "H22334", "Wood", "Chair", .2);
         Furniture table = new Furniture("Coffee Table", 89.99, "HouseHold", 5, "H22335", "Wood", "Table", .2);
@@ -89,7 +89,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
         Scanner input = new Scanner(System.in);
         if (addOrSell == 1) {
             System.out.println("---Choose  what would you like to Display---");
-            System.out.printf("%s%n%s%n%s%n%s%n%s%n", "1.) Food Items", "2.) House Hold Items", "3.) Electronic Items", "4.) Clothing Items", "5.) Go back to main menu");
+            System.out.printf("%s%n%s%n%s%n%s%n%s%n", "1.)Food Items", "2.)House Hold Items", "3.)Electronic Items", "4.)Clothing Items", "5.)Main menu");
             System.out.print("Choose an option: ");
             int Choice = input.nextInt();
             if (Choice == 5) {
@@ -101,7 +101,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
 
         } else if (addOrSell == 2) {
             System.out.println("---Choose  what would you like to Buy---");
-            System.out.printf("%s%n%s%n%s%n%s%n%s%n", "1.) Food Items", "2.) House Hold Items", "3.) Electronic Items", "4.) Clothing Items","5.) Go back to main menu");
+            System.out.printf("%s%n%s%n%s%n%s%n%s%n", "1.)Food Items", "2.)House Hold Items", "3.)Electronic Items", "4.)Clothing Items","5.)Main menu");
             System.out.println("Choose an option: ");
             int Choice = input.nextInt();
             if(Choice == 5) {
@@ -115,22 +115,26 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
 
         if (inventoryChoice == 1) {
 
-            System.out.println("-------------Available Food Items Inventories------------");
+            System.out.println("+--------------------------------Available Food Items Inventories--------------------------------+");
+            System.out.println("Name           |Department     |Stock          |SKU            |Color           |Price           |");
+            System.out.println("+--------------+---------------+---------------+---------------+----------------+----------------+");
             for (StoreItem currentItem : newItems) {
                 if (currentItem instanceof FoodItem) {
-                    System.out.printf("%s: %d%n%s%n", currentItem.getName(), currentItem.getStockQuantity(),currentItem.getDepartment());
-                    System.out.println("-----------------------------------------");
+                    System.out.println(currentItem);
+                    System.out.println("+--------------+---------------+---------------+---------------+----------------+----------------+");
                 }
             }
         }
 
         if (inventoryChoice == 2) {
 
-            System.out.println("-------------Available House Hold Items Items Inventories------------");
+            System.out.println("+--------------------------------Available Food Items Inventories--------------------------------+");
+            System.out.println("Name           |Department     |Stock          |SKU            |Color           |Price           |");
+            System.out.println("+--------------+---------------+---------------+---------------+----------------+----------------+");
             for (StoreItem currentItem : newItems) {
                 if (currentItem instanceof HouseHoldItem) {
-                    System.out.printf("Name: %s |Quantity: %d |%S Department%n", currentItem.getName(), currentItem.getStockQuantity(), currentItem.getDepartment());
-                    System.out.println("-----------------------------------------");
+                    System.out.println(currentItem);
+                    System.out.println("+--------------+---------------+---------------+---------------+----------------+----------------+");
                 }
             }
         }
@@ -161,7 +165,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
 
 
     public static void addToExistingOrNew(){
-        System.out.printf("Would like to %n1.)Add to Existing item  %n2.)Create a new Item%n");
+        System.out.printf("Would like to %n1.)Add to Existing item  %n2.)Create a new Item%n3.)Main menu%n");
         System.out.print("Enter your choice: ");
         int choice = input.nextInt();
         if (choice == 1) {
@@ -175,6 +179,9 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
             System.out.print("Enter your choice: ");
             int choice3 = input.nextInt();
             addNewItem(choice3);
+        }
+        if (choice == 3){
+            Casechosen();
         }
     }
 

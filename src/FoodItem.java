@@ -4,7 +4,6 @@ public class FoodItem extends StoreItem{
 
     public FoodItem(String name, double price, String department, int stockQuantity, String sku, String Color) {
         super(name, price, department, stockQuantity, sku);
-        super.setDepartment("Food");
         this.Color = Color;
 
     }
@@ -28,6 +27,6 @@ public class FoodItem extends StoreItem{
 
     @Override
     public String toString(){
-        return String.format("%s%nAmount: %s %nDepartment: %s%n", super.toString(), getStockQuantity(), getDepartment());
+        return String.format("%s%-15s|", super.toString(), getColor());
     }
 }

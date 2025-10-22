@@ -26,6 +26,6 @@ public class Vegetable extends FoodItem {
     // Override toString method to include vegetable-specific details
     @Override
     public String toString(){
-        return String.format("%s %fPrice After Tax:", super.toString(), itemPrice());
+        return String.format("%s$%-15.2f|", super.toString(), itemPrice());
     }
 }
