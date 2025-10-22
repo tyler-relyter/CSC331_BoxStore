@@ -167,20 +167,24 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
     public static void addToExistingOrNew(){
         System.out.printf("Would like to %n1.)Add to Existing item  %n2.)Create a new Item%n3.)Main menu%n");
         System.out.print("Enter your choice: ");
-        int choice = input.nextInt();
-        if (choice == 1) {
+        int addOrCreate = input.nextInt();
+        if (addOrCreate == 1) {
             System.out.printf("1.)Food%n2.)House Hold%n3.)Electronics%n4.)Clothing Items%n");
             System.out.print("Enter your choice: ");
-            int choice2 = input.nextInt();
-            addExistingitmes(choice2);
+            int addChoice = input.nextInt();
+            addExistingitmes(addChoice);
+
+
         }
-        if (choice == 2){
-            System.out.printf("1.)Food%n2.)House Hold%n3.)Electronics%n4.)Clothing Items%n");
+        if (addOrCreate == 2){
+            System.out.println("Witch new item do you want to add to inventory");
+            System.out.printf("1.)Fruit%n2.)Vegetable%n3.)Shelf Stable%n4.)Previous%n5.)Cleaning Supply%n6.)Furniture");
             System.out.print("Enter your choice: ");
-            int choice3 = input.nextInt();
-            addNewItem(choice3);
+            int choice = input.nextInt();
+            addNewItem(choice);
+
         }
-        if (choice == 3){
+        if (addOrCreate == 3){
             Casechosen();
         }
     }
@@ -304,7 +308,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
         boolean cont = true;
         while(cont) {
             if (choice == 1) {
-                System.out.println("Please enter the following information");
+                System.out.println("Please enter the Fruit following information");
                 System.out.print("Name: ");
                 String name = input.next();
                 System.out.print("Price: ");
@@ -329,7 +333,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
 
             }
             if (choice == 2) {
-                System.out.println("Please enter the following information");
+                System.out.println("Please enter the Vegetable following information");
                 System.out.print("Name: ");
                 String name = input.next();
                 System.out.print("Price: ");
