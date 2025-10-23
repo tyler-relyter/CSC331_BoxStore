@@ -8,7 +8,8 @@
 public abstract class ElectronicsItem extends StoreItem {
     private String brand;
     private String model;
-    private int warrantyPeriod; // in months
+    private int warrantyPeriod;// in months
+    private double eTAX = 0.08; // 8% tax rate
 
     // Constructor
 
@@ -61,6 +62,12 @@ public abstract class ElectronicsItem extends StoreItem {
      */
     public int getWarrantyPeriod() { return warrantyPeriod; }
 
+    /**
+     * Get the electronics tax rate.
+     * @return ETAX double representing the electronics tax rate.
+     */
+    public double getETAX() { return eTAX; }
+
 
     // Setters
 
@@ -82,8 +89,14 @@ public abstract class ElectronicsItem extends StoreItem {
      */
     public void setWarrantyPeriod(int warrantyPeriod) { this.warrantyPeriod = warrantyPeriod; }
 
+    /**
+     * Set the electronics tax rate.
+     * @param eTAX double representing the new electronics tax rate.
+     */
+    public void setETAX(double eTAX) { this.eTAX = eTAX; }
+
     @Override
-    public double itemPrice(){return super.getPrice();}
+    public double itemPrice(){return super.getPrice() * (1 + getETAX());}
 
 
     // Override toString method to include electronics-specific details

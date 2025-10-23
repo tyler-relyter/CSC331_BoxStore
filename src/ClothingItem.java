@@ -2,6 +2,7 @@ public class ClothingItem extends StoreItem {
     private double size;
     private String color;
     private String material;
+    private double cTAX = 0.05; // 5% tax rate
 
     // Constructor
 
@@ -54,6 +55,12 @@ public class ClothingItem extends StoreItem {
      */
     public String getMaterial() { return material; }
 
+    /**
+     * Get the clothing tax rate.
+     * @return cTAX double representing the clothing tax rate.
+     */
+    public double getCTAX() { return cTAX; }
+
     // Setters
 
     /**
@@ -74,9 +81,12 @@ public class ClothingItem extends StoreItem {
      */
     public void setMaterial(String material) { this.material = material; }
 
+    public void setCTAX(double cTAX) {
+        this.cTAX = cTAX;
+    }
 
     @Override
-    public double itemPrice(){return super.getPrice();}
+    public double itemPrice(){return super.getPrice() * (1 + getCTAX());}
 
     // Override toString method to include clothing-specific details
     @Override

@@ -93,7 +93,9 @@ public abstract class StoreItem {
     public void setSku(String sku) { this.sku = sku; }
 
 
+    // Abstract method to calculate item price including tax
     public abstract double itemPrice();
+
     public void addStock(int stock){
         if ( stock >= 0){
             setStockQuantity(getStockQuantity() + stock);
@@ -116,7 +118,7 @@ public abstract class StoreItem {
 
     @Override
     public String toString() {
-        return String.format("%-15s|%-15s|%-15d|%-15s| ", this.name, this.department, this.stockQuantity, this.sku);
+        return String.format("Name: %s%nDepartment: %s%nQuantity: %d%nSKU: %s", this.name, this.department, this.stockQuantity, this.sku);
     }
 }
 

@@ -10,7 +10,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
 
     public static void main(String[] args) {
         baseInventory();
-        Casechosen();
+        caseChosen();
     }
 
     public static void baseInventory() {
@@ -34,8 +34,8 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
         OuterWear rainCoat = new OuterWear("Columbia", 60.00, "Clothing", 10, "A432DE", 11.0, "Yellow", "Polyester", true);
         Shirt tshirt = new Shirt("Hanes", 8.00, "Clothing", 10, "A432DE", 9.0, "White", "Cotton", "T-Shirt");
         Shirt polo = new Shirt("Polo", 20.00, "Clothing", 10, "A432DE", 12.0, "Blue", "Cotton", "Polo Shirt");
-        Shoe tennisShoe = new Shoe("nike", 11.00, "Clothing", 10, "A432DE", 11.5, "Red", "Synthetic", "Tennis Shoe", .6);
-        Shoe boots = new Shoe("Timberland", 80.00, "Clothing", 10, "A432DE", 10.5, "Brown", "Leather", "Boots", .7);
+        Shoe tennisShoe = new Shoe("nike", 11.00, "Clothing", 10, "A432DE", 11.5, "Red", "Synthetic", "Tennis Shoe");
+        Shoe boots = new Shoe("Timberland", 80.00, "Clothing", 10, "A432DE", 10.5, "Brown", "Leather", "Boots");
         newItems.add(jacket);
         newItems.add(rainCoat);
         newItems.add(tshirt);
@@ -48,8 +48,8 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
         Laptop hpLaptop = new Laptop("HP Spectre x360", 1199.99, "Electronics", 3, "E12346", "HP", "Spectre x360", 24, "Intel i9", 32, 1024, 17.0);
         Phone iphone = new Phone("iPhone 14", 799.99, "Electronics", 10, "E22334", "Apple", "iPhone 14", 12, "iOS", 128, 6.1);
         Phone samsungPhone = new Phone("Samsung Galaxy S22", 749.99, "Electronics", 8, "E22335", "Samsung", "Galaxy S22", 12, "Android", 256, 6.2);
-        TV samsungTV = new TV("Samsung QLED", 1499.99, "Electronics", 4, "E32345", "Samsung", "Samsung 55 QLED", 36, "QLED", 55.0, true, 0.07);
-        TV lgTV = new TV("LG OLED", 1799.99, "Electronics", 2, "E32346", "LG", "LG 65 OLED", 36, "OLED",65.0, true, 0.07);
+        TV samsungTV = new TV("Samsung QLED", 1499.99, "Electronics", 4, "E32345", "Samsung", "Samsung 55 QLED", 36, "QLED", 55.0, true);
+        TV lgTV = new TV("LG OLED", 1799.99, "Electronics", 2, "E32346", "LG", "LG 65 OLED", 36, "OLED",65.0, true);
         newItems.add(dellLaptop);
         newItems.add(hpLaptop);
         newItems.add(iphone);
@@ -68,50 +68,67 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
         newItems.add(table);
 
     }
-    public static void Casechosen() {
+    public static void caseChosen() {
         System.out.println("---Welcome to the Wilmington Quick Shop---");
-        System.out.printf("%s%n%s%n%s%n%s%n%s", "Do you want to Add or Purchase and item?", "1.) Add", "2.) Purchase","3.) Quit",
+        System.out.printf("%s%n%s%n%s%n%s%n%s%n%s", "What would you you like to do?", "1.) Add item to inventory", "2.) Purchase","3.) Display Inventory", "4.) Exit",
                 "Please enter your choice: ");
         int choice = input.nextInt();
         if (choice == 1) {
-            addOrSell(choice);
+            addNewItem();
         }
         if (choice == 2){
-            addOrSell(choice);
+            purchaseItems();
             }
         if (choice == 3) {
+            System.out.println("---Choose  what would you like to Display---");
+            System.out.printf("%s%n%s%n%s%n%s%n%s%n", "1.)Food Items", "2.)House Hold Items", "3.)Electronic Items", "4.)Clothing Items", "5.)Main menu");
+            System.out.print("Choose an option: ");
+            int displayChoice = input.nextInt();
+            if (displayChoice == 5) {
+                caseChosen();
+            }
+            if (displayChoice == 1 || displayChoice == 2 || displayChoice == 3 || displayChoice == 4)  {
+                displayItems(displayChoice);
+            }
+        }
+        if (choice == 4) {
             System.out.println("Thank you for using the Wilmington Quick Shop");
         }
 
     }
 
-    public static void addOrSell(int addOrSell) {
-        Scanner input = new Scanner(System.in);
-        if (addOrSell == 1) {
-            System.out.println("---Choose  what would you like to Display---");
-            System.out.printf("%s%n%s%n%s%n%s%n%s%n", "1.)Food Items", "2.)House Hold Items", "3.)Electronic Items", "4.)Clothing Items", "5.)Main menu");
-            System.out.print("Choose an option: ");
-            int Choice = input.nextInt();
-            if (Choice == 5) {
-                Casechosen();
-            }
-            if (Choice == 1 || Choice == 2 || Choice == 3 || Choice == 4)  {
-                diplsayItems(Choice);
-            }
 
-        } else if (addOrSell == 2) {
-            System.out.println("---Choose  what would you like to Buy---");
-            System.out.printf("%s%n%s%n%s%n%s%n%s%n", "1.)Food Items", "2.)House Hold Items", "3.)Electronic Items", "4.)Clothing Items","5.)Main menu");
-            System.out.println("Choose an option: ");
-            int Choice = input.nextInt();
-            if(Choice == 5) {
-                Casechosen();
+    public static void purchaseItems() {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter the name of the item you wish to purchase: ");
+        String itemName = input.nextLine();
+        boolean itemFound = false;
+        for (StoreItem item : newItems) {
+            if (item.getName().equalsIgnoreCase(itemName)) {
+                itemFound = true;
+                System.out.print("Enter the quantity you wish to purchase: ");
+                int quantity = input.nextInt();
+                if (quantity <= item.getStockQuantity()) {
+                    item.removeStock(quantity);
+                    double totalPrice = item.itemPrice() * quantity;
+                    System.out.printf("You have purchased %d of %s for a total of $%.2f%n", quantity, item.getName(), totalPrice);
+                } else {
+                    System.out.println("Insufficient stock available.");
+                }
+                break;
             }
-            sellOptions(Choice);
         }
+        if (!itemFound) {
+            System.out.println("Item not found in inventory.");
+            purchaseItems();
+        }
+        caseChosen();
+
+
     }
 
-    public static void diplsayItems(int inventoryChoice){
+    public static void displayItems(int inventoryChoice){
 
         if (inventoryChoice == 1) {
 
@@ -144,8 +161,8 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
             System.out.println("-------------Available Electronic Items Inventories------------");
             for (StoreItem currentItem : newItems) {
                 if (currentItem instanceof ElectronicsItem) {
-                    System.out.printf("%s: %d%n %S", currentItem.getName(), currentItem.getStockQuantity(), currentItem.getDepartment());
-                    System.out.println("-----------------------------------------");
+                    System.out.print(currentItem);
+                    System.out.println();
                 }
             }
         }
@@ -155,8 +172,8 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
             System.out.println("-------------Available Clothing Items Inventories------------");
             for (StoreItem currentItem : newItems) {
                 if (currentItem instanceof ClothingItem) {
-                    System.out.printf("%s: %d%n %S", currentItem.getName(), currentItem.getStockQuantity(), currentItem.getDepartment());
-                    System.out.println("-----------------------------------------");
+                    System.out.print(currentItem);
+                    System.out.println();
                 }
             }
         }
@@ -172,27 +189,23 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
             System.out.printf("1.)Food%n2.)House Hold%n3.)Electronics%n4.)Clothing Items%n");
             System.out.print("Enter your choice: ");
             int addChoice = input.nextInt();
-            addExistingitmes(addChoice);
+            addExistingItems(addChoice);
 
 
         }
         if (addOrCreate == 2){
-            System.out.println("Witch new item do you want to add to inventory");
-            System.out.printf("1.)Fruit%n2.)Vegetable%n3.)Shelf Stable%n4.)Previous%n5.)Cleaning Supply%n6.)Furniture");
-            System.out.print("Enter your choice: ");
-            int choice = input.nextInt();
-            addNewItem(choice);
+            addNewItem();
 
         }
         if (addOrCreate == 3){
-            Casechosen();
+            caseChosen();
         }
     }
 
 
 
 
-    public static void addExistingitmes(int options) {
+    public static void addExistingItems(int options) {
         boolean cont = true;
 
         switch(options) {
@@ -266,6 +279,39 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                     }
                 }
                 break;
+            case 3:
+                System.out.println("-------------Add Electronic Items to existing inventory-------------");
+                while (cont) {
+                    System.out.print("Name of item do you want to add to inventory?: ");
+                    String name = input.next();
+                    System.out.print("Amount you want to add: ");
+                    int amount = input.nextInt();
+
+                    boolean found = false;
+
+                    for (StoreItem item : newItems) {
+                        if (item instanceof ElectronicsItem electronicsItem && item.getName().equalsIgnoreCase(name)) {
+                            electronicsItem.addStock(amount);
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (!found) {
+                        System.out.println("Item not found in inventory. Cannot add electronics.");
+                    }
+                    System.out.print("Add another item? (y/n): ");
+                    if (input.next().equalsIgnoreCase("n")) {
+                        System.out.println("--------UPDATED ELECTRONICS INVENTORY------------");
+                        for (StoreItem currentItem : newItems) {
+                            if (currentItem instanceof ElectronicsItem) {
+                                System.out.printf("%s: %d%n", currentItem.getName(), currentItem.getStockQuantity());
+                                System.out.println("-----------------------------------------");
+                            }
+                        }
+                        cont = false;
+                    }
+                }
+                break;
             case 4:
                 System.out.println("-------------Add House Hold Items to existing inventory-------------");
                 while (cont) {
@@ -301,167 +347,254 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                 }
                 break;
         }
-        Casechosen();
+        caseChosen();
     }
 
-    public static void addNewItem(int choice){
-        boolean cont = true;
-        while(cont) {
-            if (choice == 1) {
-                System.out.println("Please enter the Fruit following information");
-                System.out.print("Name: ");
-                String name = input.next();
-                System.out.print("Price: ");
-                double price = input.nextDouble();
-                input.nextLine();
-                System.out.print("Department: ");
-                String department = input.next();
-                System.out.print("Quantity: ");
-                int stockQuantity = input.nextInt();
-                System.out.print("SKU: ");
-                String sku = input.next();
-                System.out.print("Color: ");
-                String color = input.next();
-                System.out.print("Tax (enter as decimal): ");
-                double fruitTax = input.nextDouble();
+    public static void addNewItem() {
+        boolean done = false;
+        while (!done) {
+            System.out.println();
+            System.out.println("Choose department to add an item:");
+            System.out.println("1.) Food");
+            System.out.println("2.) House Hold");
+            System.out.println("3.) Electronics");
+            System.out.println("4.) Clothing");
+            System.out.println("5.) Back to main menu");
+            System.out.print("Choice: ");
+            int dept = input.nextInt();
+            input.nextLine();
 
-                newItems.add(new Fruit(name, price, department, stockQuantity, sku, color, fruitTax));
-                System.out.print("Add another item? (y/n): ");
-                if (input.next().equalsIgnoreCase("n")) {
-                    cont = false;
-                }
+            switch (dept) {
+                case 1:
+                    System.out.println();
+                    System.out.println("Food types:");
+                    System.out.println("1.) Fruit");
+                    System.out.println("2.) Vegetable");
+                    System.out.println("3.) Shelf Stable");
+                    System.out.println("4.) Back");
+                    System.out.print("Choice: ");
+                    int c = input.nextInt();
+                    input.nextLine();
+                    if (c == 4) {
+                        break;
+                    }
+                    System.out.print("Name: ");
+                    String name = input.nextLine();
+                    System.out.print("Price: ");
+                    double price = input.nextDouble();
+                    input.nextLine();
+                    System.out.print("Quantity: ");
+                    int qty = input.nextInt();
+                    input.nextLine();
+                    System.out.print("SKU: ");
+                    String sku = input.nextLine();
+                    System.out.print("Color: ");
+                    String color = input.nextLine();
+                    System.out.print("Tax (decimal): ");
+                    double tax = input.nextDouble();
+                    input.nextLine();
+                    if (c == 1) {
+                        newItems.add(new Fruit(name, price, "Food", qty, sku, color, tax));
+                    }
+                    else if (c == 2) {
+                        newItems.add(new Vegetable(name, price, "Vegetables", qty, sku, color, tax));
+                    }
+                    else if (c == 3) {
+                        newItems.add(new ShelfStable(name, price, "Shelf Stable", qty, sku, color, tax));
+                    }
+                    else {
+                        System.out.println("Invalid food type.");
+                    }
+                    System.out.println("Item added.");
+                    break;
 
-            }
-            if (choice == 2) {
-                System.out.println("Please enter the Vegetable following information");
-                System.out.print("Name: ");
-                String name = input.next();
-                System.out.print("Price: ");
-                double price = input.nextDouble();
-                input.nextLine();
-                System.out.print("Department: ");
-                String department = input.next();
-                System.out.print("Quantity: ");
-                int stockQuantity = input.nextInt();
-                System.out.print("SKU: ");
-                String sku = input.next();
-                System.out.print("Color: ");
-                String color = input.next();
-                System.out.print("Tax (enter as decimal): ");
-                double vegetableTax = input.nextDouble();
+                case 2:
+                    System.out.println();
+                    System.out.println("House Hold types:");
+                    System.out.println("1.) Cleaning Supply");
+                    System.out.println("2.) Furniture");
+                    System.out.println("3.) Back");
+                    System.out.print("Choice: ");
+                    int hc = input.nextInt();
+                    input.nextLine();
+                    if (hc == 3) {
+                        break;
+                    }
+                    System.out.print("Name: ");
+                    String hname = input.nextLine();
+                    System.out.print("Price: ");
+                    double hprice = input.nextDouble();
+                    input.nextLine();
+                    System.out.print("Quantity: ");
+                    int hqty = input.nextInt();
+                    input.nextLine();
+                    System.out.print("SKU: ");
+                    String hsku = input.nextLine();
+                    if (hc == 1) {
+                        System.out.print("Material: ");
+                        String material = input.nextLine();
+                        System.out.print("Scent: ");
+                        String scent = input.nextLine();
+                        System.out.print("Tax (decimal): ");
+                        double htax = input.nextDouble();
+                        input.nextLine();
+                        newItems.add(new CleaningSupply(hname, hprice, "HouseHold", hqty, hsku, material, scent, htax));
+                    }
+                    else if (hc == 2) {
+                        System.out.print("Material: ");
+                        String material2 = input.nextLine();
+                        System.out.print("Type: ");
+                        String type = input.nextLine();
+                        System.out.print("Tax (decimal): ");
+                        double htax2 = input.nextDouble();
+                        input.nextLine();
+                        newItems.add(new Furniture(hname, hprice, "Furniture", hqty, hsku, material2, type, htax2));
+                    }
+                    else {
+                        System.out.println("Invalid house hold type.");
+                    }
+                    System.out.println("Item added.");
+                    break;
 
-                newItems.add(new Vegetable(name, price, department, stockQuantity, sku, color, vegetableTax));
-                System.out.print("Add another item? (y/n): ");
-                if (input.next().equalsIgnoreCase("n")) {
-                    cont = false;
-                }
+                case 3:
+                    System.out.println();
+                    System.out.println("Electronics types:");
+                    System.out.println("1.) Laptop");
+                    System.out.println("2.) Phone");
+                    System.out.println("3.) TV");
+                    System.out.println("4.) Back");
+                    System.out.print("Choice: ");
+                    int ec = input.nextInt();
+                    input.nextLine();
+                    if (ec == 4) {
+                        break;
+                    }
+                    System.out.print("Name: ");
+                    String ename = input.nextLine();
+                    System.out.print("Price: ");
+                    double eprice = input.nextDouble();
+                    input.nextLine();
+                    System.out.print("Quantity: ");
+                    int eqty = input.nextInt();
+                    input.nextLine();
+                    System.out.print("SKU: ");
+                    String esku = input.nextLine();
+                    System.out.print("Brand: ");
+                    String brand = input.nextLine();
+                    System.out.print("Model: ");
+                    String model = input.nextLine();
+                    System.out.print("Warranty months: ");
+                    int warranty = input.nextInt();
+                    input.nextLine();
+                    if (ec == 1) {
+                        System.out.print("CPU: ");
+                        String cpu = input.nextLine();
+                        System.out.print("RAM (GB): ");
+                        int ram = input.nextInt();
+                        input.nextLine();
+                        System.out.print("Storage (GB): ");
+                        int storage = input.nextInt();
+                        input.nextLine();
+                        System.out.print("Screen size (inches): ");
+                        double screen = input.nextDouble();
+                        input.nextLine();
+                        newItems.add(new Laptop(ename, eprice, "Electronics", eqty, esku, brand, model, warranty, cpu, ram, storage, screen));
+                    }
+                    else if (ec == 2) {
+                        System.out.print("OS: ");
+                        String os = input.nextLine();
+                        System.out.print("Storage (GB): ");
+                        int pstorage = input.nextInt();
+                        input.nextLine();
+                        System.out.print("Screen size (inches): ");
+                        double pscreen = input.nextDouble();
+                        input.nextLine();
+                        newItems.add(new Phone(ename, eprice, "Electronics", eqty, esku, brand, model, warranty, os, pstorage, pscreen));
+                    }
+                    else if (ec == 3) {
+                        System.out.print("Type (e.g. OLED/QLED): ");
+                        String tvType = input.nextLine();
+                        System.out.print("Screen size (inches): ");
+                        double tvScreen = input.nextDouble();
+                        input.nextLine();
+                        System.out.print("Smart TV? (y/n): ");
+                        boolean isSmart = input.next().equalsIgnoreCase("y");
+                        input.nextLine();
+                        newItems.add(new TV(ename, eprice, "Electronics", eqty, esku, brand, model, warranty, tvType, tvScreen, isSmart));
+                    }
+                    else {
+                        System.out.println("Invalid electronics type.");
+                    }
+                    System.out.println("Item added.");
+                    break;
 
-            }
+                case 4:
+                    System.out.println();
+                    System.out.println("Clothing types:");
+                    System.out.println("1.) Outer Wear");
+                    System.out.println("2.) Shoe");
+                    System.out.println("3.) Shirt");
+                    System.out.println("4.) Back");
+                    System.out.print("Choice: ");
+                    int cc = input.nextInt();
+                    input.nextLine();
+                    if (cc == 4) {
+                        break;
+                    }
+                    System.out.print("Name: ");
+                    String cname = input.nextLine();
+                    System.out.print("Price: ");
+                    double cprice = input.nextDouble();
+                    input.nextLine();
+                    System.out.print("Quantity: ");
+                    int cqty = input.nextInt();
+                    input.nextLine();
+                    System.out.print("SKU: ");
+                    String csku = input.nextLine();
+                    System.out.print("Size (numeric): ");
+                    double size = input.nextDouble();
+                    input.nextLine();
+                    System.out.print("Color: ");
+                    String ccolor = input.nextLine();
+                    System.out.print("Material: ");
+                    String cmaterial = input.nextLine();
+                    if (cc == 1) {
+                        System.out.print("Is water resistant? (y/n): ");
+                        boolean isWater = input.next().equalsIgnoreCase("y");
+                        input.nextLine();
+                        newItems.add(new OuterWear(cname, cprice, "Clothing", cqty, csku, size, ccolor, cmaterial, isWater));
+                    }
+                    else if (cc == 2) {
+                        System.out.print("Type (e.g. Tennis Shoe, Boots): ");
+                        String type = input.nextLine();
+                        newItems.add(new Shoe(cname, cprice, "Clothing", cqty, csku, size, ccolor, cmaterial, type));
+                    }
+                    else if (cc == 3) {
+                        System.out.print("Type (e.g. T-Shirt, Polo): ");
+                        String type = input.nextLine();
+                        newItems.add(new Shirt(cname, cprice, "Clothing", cqty, csku, size, ccolor, cmaterial, type));
+                    }
+                    else {
+                        System.out.println("Invalid clothing type.");
+                    }
+                    System.out.println("Item added.");
+                    break;
 
-            if (choice ==3) {
-                System.out.println("Please enter the following information");
-                System.out.print("Name: ");
-                String name = input.next();
-                System.out.print("Price: ");
-                double price = input.nextDouble();
-                input.nextLine();
-                System.out.print("Department: ");
-                String department = input.next();
-                System.out.print("Quantity: ");
-                int stockQuantity = input.nextInt();
-                System.out.print("SKU: ");
-                String sku = input.next();
-                System.out.print("Color: ");
-                String color = input.next();
-                System.out.print("Tax (enter as decimal): ");
-                double vegetableTax = input.nextDouble();
+                case 5:
+                    done = true;
+                    break;
 
-                newItems.add(new ShelfStable(name, price, department, stockQuantity, sku, color, vegetableTax));
-                System.out.print("Add another item? (y/n): ");
-                if (input.next().equalsIgnoreCase("n")) {
-                    cont = false;
-                }
-
-            }
-
-            if (choice == 4) {
-                System.out.println("Please enter the following information");
-                System.out.print("Name: ");
-                String name = input.next();
-                System.out.print("Price: ");
-                double price = input.nextDouble();
-                input.nextLine();
-                System.out.print("Department: ");
-                String department = input.next();
-                System.out.print("Quantity: ");
-                int stockQuantity = input.nextInt();
-                System.out.print("SKU: ");
-                String sku = input.next();
-                System.out.print("Material: ");
-                String material = input.next();
-                input.nextLine();
-                System.out.print("Scent: ");
-                String scent = input.next();
-                System.out.print("CleaningTax:");
-                double cleaningTax = input.nextDouble();
-
-
-                newItems.add(new CleaningSupply(name, price, department, stockQuantity, sku, material, scent, cleaningTax));
-                System.out.print("Add another item? (y/n): ");
-                if (input.next().equalsIgnoreCase("n")) {
-                    cont = false;
-                }
-
+                default:
+                    System.out.println("Invalid department choice.");
+                    break;
             }
         }
-        diplsayItems(1);
-
     }
 
 
 
 
-    public static int sellOptions(int Choice) {
-        switch (Choice) {
-            case 1:
-                System.out.println("--- CHOOSE FOOD ITEM ---");
-                System.out.printf("%s%n%s%n%s%n%s%n", "1.) Fruit", "2.) Vegetable", "3.) Shelf Stable", "4.) Main Menu");
-                System.out.print("Choose an option: ");
-                int foodItemChoice = input.nextInt();
-                if (foodItemChoice == 4) {
-                    Casechosen();
-                }
-                return foodItemChoice;
 
-            case 2:
-                System.out.println("--- CHOOSE HOUSE HOLD ITEM ---");
-                System.out.printf("%s%n%s%n%s%n", "1.) Cleaning Supply", "2.) Furniture", "3.) Main Menu");
-                System.out.println("Choose an option: ");
-                int HouseItemChoice = input.nextInt();
-                if (HouseItemChoice == 3) {
-                    Casechosen();
-                }
-                break;
-            case 3:
-                System.out.println("--- CHOOSE ELECTRONIC ITEM ---");
-                System.out.printf("%s%n%s%n%s%n%s%n", "1.) Laptop", "2.) Phone", "3.) TV", "4.) Main Menu");
-                System.out.print("Choose an option: ");
-                int ElectronicItemChoice = input.nextInt();
-                if (ElectronicItemChoice == 4) {
-                    Casechosen();
-                }
-                break;
-            case 4:
-                System.out.println("--- CHOOSE CLOTHING ITEM ---");
-                System.out.printf("%s%n%s%n%s%n%s%n", "1.) Outer Wear", "2.) Shoe", "3.) Shirt", "4.) Main Menu");
-                System.out.print("Choose an option: ");
-                int ClothingItemChoice = input.nextInt();
-                if (ClothingItemChoice == 4) {
-                    Casechosen();
-                }
-                break;
-        }
-    return Choice;
-    }
+
 }
 

@@ -29,6 +29,8 @@ public class OuterWear extends ClothingItem{
      */
     public boolean isWaterproof() { return isWaterproof; }
 
+    public double getTaxRate(){ return super.getCTAX(); }
+
     // Setter
 
     /**
@@ -37,6 +39,8 @@ public class OuterWear extends ClothingItem{
      */
     public void setWaterproof(boolean isWaterproof) { this.isWaterproof = isWaterproof; }
 
+    @Override
+    public double itemPrice(){return super.getPrice() * (1 + super.getCTAX());}
 
 
     // Override toString method to include outerwear-specific details

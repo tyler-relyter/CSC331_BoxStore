@@ -63,6 +63,10 @@ public class Phone extends ElectronicsItem {
      */
     public double getScreenSize() { return screenSize; }
 
+    public double getTaxRate() {
+        return super.getETAX();
+    }
+
     // Setters
 
     /**
@@ -84,8 +88,13 @@ public class Phone extends ElectronicsItem {
     public void setScreenSize(double screenSize) { this.screenSize = screenSize; }
 
     @Override
+    public double itemPrice(){
+        return  super.getPrice()*(1 + super.getETAX());
+    }
+
+    @Override
     public String toString() {
-        return String.format("%s%nOperating System: %s%nStorage: %d GB%nScreen Size: %.2f inches",
+        return String.format("%s%nOperating System: %s%nStorage: %d GB%nScreen Size: %.2f inches%n",
                 super.toString(), operatingSystem, storage, screenSize);
     }
 }

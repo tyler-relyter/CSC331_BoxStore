@@ -1,6 +1,6 @@
 public class Shoe extends ClothingItem{
     private String shoeType;// Example: sneakers, boots, sandals
-    private double shoeTax;
+
     // Constructor
     /**
      * Constructs a Shoe item.
@@ -15,10 +15,10 @@ public class Shoe extends ClothingItem{
      * @param shoeType String Type of shoe
      */
     public Shoe(String name, double price, String department, int stockQuantity, String sku,
-                 double size, String color, String material, String shoeType, double shoeTax) {
+                 double size, String color, String material, String shoeType) {
         super(name, price, department, stockQuantity, sku, size, color, material);
         this.shoeType = shoeType;
-        this.shoeTax = shoeTax;
+
     }
 
     // Getter
@@ -28,7 +28,7 @@ public class Shoe extends ClothingItem{
      */
     public String getShoeType() { return shoeType; }
 
-    public double getShoeTax() { return shoeTax; }
+    public double getTaxRate(){ return super.getCTAX(); }
 
     // Setter
     /**
@@ -36,11 +36,11 @@ public class Shoe extends ClothingItem{
      * @param shoeType String representing the new type of shoe.
      */
     public void setShoeType(String shoeType) { this.shoeType = shoeType; }
-    public void setShoeTax(double shoeTax) {this.shoeTax = shoeTax; }
+
 
     @Override
     public double itemPrice(){
-        return  super.getPrice()*(1 + this.shoeTax);
+        return  super.getPrice()*(1 + super.getCTAX());
     }
 
     // Override toString method to include shoe-specific details

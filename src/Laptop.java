@@ -73,6 +73,14 @@ public class Laptop extends ElectronicsItem {
      */
     public double getScreenSize() { return screenSize; }
 
+    /**
+     * Get the tax rate for the Laptop.
+     * @return eTAX double representing the tax rate for the Laptop.
+     */
+    public double getTaxRate() {
+        return super.getETAX(); // tax rate for laptops
+    }
+
     // Setters
 
     /**
@@ -98,6 +106,11 @@ public class Laptop extends ElectronicsItem {
      * @param screenSize double representing the new screen size of the Laptop in inches.
      */
     public void setScreenSize(double screenSize) { this.screenSize = screenSize; }
+
+    @Override
+    public double itemPrice(){
+        return  super.getPrice()*(1 + super.getETAX());
+    }
 
     @Override
     public String toString() {
