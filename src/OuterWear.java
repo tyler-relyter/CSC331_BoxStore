@@ -12,6 +12,7 @@
 public class OuterWear extends ClothingItem{
     private boolean isWaterproof;
 
+
     // Constructor
 
     /**

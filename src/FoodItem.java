@@ -1,15 +1,4 @@
-/**
- * Represents a food-related store item.
- * Contains color information in addition to the common StoreItem fields.
- *
- * @author Luis Carmona
- * @author Tyler Bullard
- * @author Michael Sterbal
- * @version 1.0
- * @since 2025-10
- * CSC 331-003
- */
-public class FoodItem extends StoreItem {
+public class FoodItem extends StoreItem{
 
     private String Color;
 
@@ -26,22 +15,9 @@ public class FoodItem extends StoreItem {
     public FoodItem(String name, double price, String department, int stockQuantity, String sku, String Color) {
         super(name, price, department, stockQuantity, sku);
         this.Color = Color;
-    }
 
-    /**
-     * Constructs a FoodItem without specifying color (color defaults to empty string).
-     *
-     * @param name          the display name of the item
-     * @param price         the unit price of the item
-     * @param department    the department name this item belongs to
-     * @param stockQuantity the initial stock quantity
-     * @param sku           the SKU identifier
-     */
-    public FoodItem(String name, double price, String department, int stockQuantity, String sku) {
-        super(name, price, department, stockQuantity, sku);
-        this.Color = "";
     }
-
+    //getter
     /**
      * Returns the color description of this food item.
      *
