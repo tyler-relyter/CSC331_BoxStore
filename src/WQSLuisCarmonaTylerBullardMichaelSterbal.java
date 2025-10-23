@@ -1,19 +1,46 @@
+/**
+ * @author Luis Carmona, Tyler Bullard, Michael Sterbal
+ * Date: October 2025
+ * Course section: CSC 331-003
+ * *
+ * Wilmington Quick Shop Demo Application
+ * * Version: 1.0
+ * Description:
+ * This application simulates a simple inventory management and sales system for a convenience store.
+ * It allows users to add items to inventory, sell items, and display current inventory across various departments.
+ */
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Main driver class for Wilmington Quick Shop demo application.
+ * Contains inventory initialization, menu handling, display, adding, and selling logic.
+ */
 public class WQSLuisCarmonaTylerBullardMichaelSterbal {
     static Scanner input = new Scanner(System.in);
-
     static ArrayList<StoreItem> newItems = new ArrayList<StoreItem>();
 
+    /**
+     * Application entry point.
+     *
+     * @param args command line arguments (not used)
+     */
     public static void main(String[] args) {
+        // Initialize base inventory and start main menu
         baseInventory();
         caseChosen();
     }
 
+    /**
+     * Populate the initial inventory with sample items across departments.
+     * <p>
+     * Creates various StoreItem subclasses and adds them to the shared inventory list.
+     * </p>
+     */
     public static void baseInventory() {
+        // Create Fruit items
         Fruit apple = new Fruit("Apple", 5.00, "Fruit", 10, "A215", "red",  .3);
         Fruit mango = new Fruit("Mango", 5.00, "Fruit", 3, "A215", "Yellow",  .4);
         newItems.add(apple);
@@ -66,9 +93,16 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
         newItems.add(glassCleaner);
         newItems.add(chair);
         newItems.add(table);
-
     }
+
+    /**
+     * Show the main menu and dispatch the chosen operation.
+     * <p>
+     * Offers adding items, purchasing, displaying inventory, or exiting.
+     * </p>
+     */
     public static void caseChosen() {
+        // Display main menu and read user selection
         System.out.println("---Welcome to the Wilmington Quick Shop---");
         System.out.printf("%s%n%s%n%s%n%s%n%s%n%s", "What would you you like to do?", "1.) Add item to inventory", "2.) Purchase","3.) Display Inventory", "4.) Exit",
                 "Please enter your choice: ");
@@ -99,11 +133,21 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
         if (choice == 4) {
             System.out.println("Thank you for using the Wilmington Quick Shop");
         }
-
     }
 
-
+    /**
+     * Sell items from a chosen department.
+     *
+     * <p>
+     * Presents items in the selected department, accepts name and quantity to purchase,
+     * updates stock by calling removeStock on the matched StoreItem, tracks running total,
+     * and prints the final total when the user finishes.
+     * </p>
+     *
+     * @param deptChoice integer representing the department to sell from (1..4)
+     */
     public static void sellItems(int deptChoice) {
+        // Manage repeated purchases within a department until user finishes
         Scanner input = new Scanner(System.in);
         boolean done = false;
 
@@ -133,7 +177,6 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
             }
             if (!itemFound) {
                 System.out.println("Item not found in inventory.");
-
             }
             System.out.print("Would you like to purchase another item? (y/n): ");
             String continueChoice = input.next();
@@ -144,14 +187,17 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
             }
         }
         caseChosen();
-
-
     }
 
+    /**
+     * Display items filtered by department choice.
+     *
+     * @param inventoryChoice integer representing which department to display:
+     *                        1 = Food, 2 = HouseHold, 3 = Electronics, 4 = Clothing
+     */
     public static void displayItems(int inventoryChoice){
-
+        // Print formatted lists for each department based on inventoryChoice
         if (inventoryChoice == 1) {
-
             System.out.println("+--------------------------------Available Food Items Inventories--------------------------------+");
             System.out.println("Name           |Department     |Stock          |SKU            |Color           |Price           |");
             System.out.println("+--------------+---------------+---------------+---------------+----------------+----------------+");
@@ -164,7 +210,6 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
         }
 
         if (inventoryChoice == 2) {
-
             System.out.println("+--------------------------------Available House Hold Items Inventories------------------------------------------+");
             System.out.println("Name           |Department     |Stock          |SKU            |Color           |Scent          |Price           |");
             System.out.println("+--------------+---------------+---------------+---------------+----------------+---------------+----------------+");
@@ -177,7 +222,6 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
         }
 
         if (inventoryChoice == 3) {
-
             System.out.println("-------------Available Electronic Items Inventories------------");
             for (StoreItem currentItem : newItems) {
                 if (currentItem instanceof ElectronicsItem) {
@@ -188,7 +232,6 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
         }
 
         if (inventoryChoice == 4) {
-
             System.out.println("-------------Available Clothing Items Inventories------------");
             for (StoreItem currentItem : newItems) {
                 if (currentItem instanceof ClothingItem) {
@@ -197,12 +240,17 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                 }
             }
         }
-
-
     }
 
-
+    /**
+     * Prompt user to add stock to existing items or create new items.
+     *
+     * <p>
+     * Provides a mini-menu to either add to existing inventory, create a new item, or return to main.
+     * </p>
+     */
     public static void addToExistingOrNew(){
+        // Choose whether to add to existing items or create a new item
         System.out.printf("Would like to %n1.)Add to Existing item  %n2.)Create a new Item%n3.)Main menu%n");
         System.out.print("Enter your choice: ");
         int addOrCreate = input.nextInt();
@@ -211,22 +259,27 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
             System.out.print("Enter your choice: ");
             int addChoice = input.nextInt();
             addExistingItems(addChoice);
-
-
         }
         if (addOrCreate == 2){
             addNewItem();
-
         }
         if (addOrCreate == 3){
             caseChosen();
         }
     }
 
-
-
-
+    /**
+     * Add stock to existing items based on the provided department option.
+     *
+     * <p>
+     * Loops to accept item name and amount to add, updates stock and shows updated inventory.
+     * </p>
+     *
+     * @param options integer indicating which department to operate on:
+     *                1 = Food, 2 = House Hold, 3 = Electronics, 4 = Clothing
+     */
     public static void addExistingItems(int options) {
+        // Add stock to items within the chosen department
         boolean cont = true;
 
         switch(options) {
@@ -372,7 +425,16 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
         caseChosen();
     }
 
+    /**
+     * Create a new item and add it to the inventory.
+     *
+     * <p>
+     * Presents department and subtype menus and collects attributes required to construct
+     * the appropriate StoreItem subclass, then appends it to the inventory list.
+     * </p>
+     */
     public static void addNewItem() {
+        // Interactive creation of new items across departments and subtypes
         boolean done = false;
         while (!done) {
             System.out.println();
@@ -607,18 +669,10 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                     caseChosen();
                     break;
 
-
                 default:
                     System.out.println("Invalid department choice.");
                     break;
             }
         }
     }
-
-
-
-
-
-
 }
-

@@ -1,5 +1,10 @@
 /**
  * @author Tyler Bullard
+ * @author Luis Carmona
+ * @author Michael Sterbal
+ * Date: October 2025
+ * Course section: CSC 331-003
+ * Description:
  * Laptop class representing a laptop item in the electronics category.
  * Inherits from ElectronicsItem.
  */
