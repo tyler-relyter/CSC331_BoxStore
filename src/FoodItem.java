@@ -17,24 +17,7 @@ public class FoodItem extends StoreItem{
         this.Color = Color;
 
     }
-
     //getter
-    public String getColor(){return Color;}
-
-    /**
-     * Constructs a FoodItem without specifying color (color defaults to empty string).
-     *
-     * @param name          the display name of the item
-     * @param price         the unit price of the item
-     * @param department    the department name this item belongs to
-     * @param stockQuantity the initial stock quantity
-     * @param sku           the SKU identifier
-     */
-    public FoodItem(String name, double price, String department, int stockQuantity, String sku) {
-        super(name, price, department, stockQuantity, sku);
-        this.Color = "";
-    }
-
     /**
      * Returns the color description of this food item.
      *
