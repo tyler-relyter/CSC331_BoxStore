@@ -1,7 +1,13 @@
 /**
- * @author Luis Carmona, Tyler Bullard, Michael Sterbal
+ * @author Luis Carmona
+ * @author Tyler Bullard
+ * @author Michael Sterbal
  * Date: October 2025
  * Course section: CSC 331-003
+ * Description:
+ * This class represents a clothing item in a retail store.
+ * It extends the StoreItem class and adds clothing-specific attributes
+ * such as size, color, and material.
  */
 
 public class ClothingItem extends StoreItem {

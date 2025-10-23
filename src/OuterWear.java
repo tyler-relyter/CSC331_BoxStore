@@ -1,3 +1,14 @@
+/**
+ * @author Luis Carmona
+ * @author Tyler Bullard
+ * @author Michael Sterbal
+ * Date: October 2025
+ * Course section: CSC 331-003
+ * Description:
+ * OuterWear class representing outerwear clothing items.
+ * Inherits from ClothingItem.
+ */
+
 public class OuterWear extends ClothingItem{
     private boolean isWaterproof;
 

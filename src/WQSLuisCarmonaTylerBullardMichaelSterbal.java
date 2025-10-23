@@ -1,5 +1,7 @@
 /**
- * @author Luis Carmona, Tyler Bullard, Michael Sterbal
+ * @author Luis Carmona
+ * @author Tyler Bullard
+ * @author Michael Sterbal
  * Date: October 2025
  * Course section: CSC 331-003
  * *

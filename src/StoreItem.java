@@ -1,7 +1,13 @@
 /**
- * @author Luis Carmona, Tyler Bullard, Michael Sterbal
+ * @author Luis Carmona
+ * @author Tyler Bullard
+ * @author Michael Sterbal
  * Date: October 2025
  * Course section: CSC 331-003
+ * Description:
+ * This abstract class represents a generic store item in a retail store.
+ * It includes common attributes such as name, price, department, stock quantity, and SKU.
+ * It also provides methods to manage stock and calculate item price including tax.
  */
 
 public abstract class StoreItem {
