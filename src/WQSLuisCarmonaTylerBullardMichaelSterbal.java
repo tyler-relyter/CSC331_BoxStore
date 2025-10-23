@@ -74,22 +74,27 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                 "Please enter your choice: ");
         int choice = input.nextInt();
         if (choice == 1) {
-            addNewItem();
+            addToExistingOrNew();
         }
         if (choice == 2){
-            purchaseItems();
-            }
-        if (choice == 3) {
-            System.out.println("---Choose  what would you like to Display---");
+            System.out.println("---Choose  what department you would like to sell from---");
             System.out.printf("%s%n%s%n%s%n%s%n%s%n", "1.)Food Items", "2.)House Hold Items", "3.)Electronic Items", "4.)Clothing Items", "5.)Main menu");
             System.out.print("Choose an option: ");
-            int displayChoice = input.nextInt();
-            if (displayChoice == 5) {
+            int deptChoice = input.nextInt();
+            if (deptChoice == 5) {
                 caseChosen();
             }
-            if (displayChoice == 1 || displayChoice == 2 || displayChoice == 3 || displayChoice == 4)  {
-                displayItems(displayChoice);
+            if (deptChoice == 1 || deptChoice == 2 || deptChoice == 3 || deptChoice == 4) {
+                sellItems(deptChoice);
             }
+        }
+        if (choice == 3){
+            System.out.println("---Display Inventory---");
+            displayItems(1);
+            displayItems(2);
+            displayItems(3);
+            displayItems(4);
+            caseChosen();
         }
         if (choice == 4) {
             System.out.println("Thank you for using the Wilmington Quick Shop");
@@ -98,30 +103,45 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
     }
 
 
-    public static void purchaseItems() {
+    public static void sellItems(int deptChoice) {
         Scanner input = new Scanner(System.in);
+        boolean done = false;
 
-        System.out.print("Enter the name of the item you wish to purchase: ");
-        String itemName = input.nextLine();
-        boolean itemFound = false;
-        for (StoreItem item : newItems) {
-            if (item.getName().equalsIgnoreCase(itemName)) {
-                itemFound = true;
-                System.out.print("Enter the quantity you wish to purchase: ");
-                int quantity = input.nextInt();
-                if (quantity <= item.getStockQuantity()) {
-                    item.removeStock(quantity);
-                    double totalPrice = item.itemPrice() * quantity;
-                    System.out.printf("You have purchased %d of %s for a total of $%.2f%n", quantity, item.getName(), totalPrice);
-                } else {
-                    System.out.println("Insufficient stock available.");
+        while (!done) {
+            System.out.println("Available Items for Purchase:");
+            displayItems(deptChoice);
+
+            double totalPrice = 0.0;
+
+            System.out.print("Enter the name of the item you wish to purchase: ");
+            String itemName = input.nextLine();
+            boolean itemFound = false;
+            for (StoreItem item : newItems) {
+                if (item.getName().equalsIgnoreCase(itemName)) {
+                    itemFound = true;
+                    System.out.print("Enter the quantity you wish to purchase: ");
+                    int quantity = input.nextInt();
+                    if (quantity <= item.getStockQuantity()) {
+                        item.removeStock(quantity);
+                        totalPrice += item.itemPrice() * quantity;
+                        System.out.printf("You have added %d of %s to the shopping cart.%nCurrent total: $%.2f%n", quantity, item.getName(), totalPrice);
+                    } else {
+                        System.out.println("Insufficient stock available.");
+                    }
+                    break;
                 }
-                break;
             }
-        }
-        if (!itemFound) {
-            System.out.println("Item not found in inventory.");
-            purchaseItems();
+            if (!itemFound) {
+                System.out.println("Item not found in inventory.");
+
+            }
+            System.out.print("Would you like to purchase another item? (y/n): ");
+            String continueChoice = input.next();
+            input.nextLine();
+            if (continueChoice.equalsIgnoreCase("n")) {
+                System.out.printf("Your final total is: $%.2f%n", totalPrice);
+                done = true;
+            }
         }
         caseChosen();
 
@@ -177,7 +197,8 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                 }
             }
         }
-        addToExistingOrNew();
+
+
     }
 
 
@@ -283,9 +304,10 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                 System.out.println("-------------Add Electronic Items to existing inventory-------------");
                 while (cont) {
                     System.out.print("Name of item do you want to add to inventory?: ");
-                    String name = input.next();
+                    String name = input.nextLine();
                     System.out.print("Amount you want to add: ");
                     int amount = input.nextInt();
+                    input.nextLine();
 
                     boolean found = false;
 
@@ -582,7 +604,9 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
 
                 case 5:
                     done = true;
+                    caseChosen();
                     break;
+
 
                 default:
                     System.out.println("Invalid department choice.");

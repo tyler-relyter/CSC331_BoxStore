@@ -1,22 +1,22 @@
 public class ShelfStable extends FoodItem {
-    private double shlefSatableTax;
+    private double shelfStableTax;
 
 
-    public ShelfStable(String name, double price, String department, int stockQuantity, String sku, String Color, double shlefSatableTax) {
+    public ShelfStable(String name, double price, String department, int stockQuantity, String sku, String Color, double shelfStableTax) {
         super(name, price, department, stockQuantity, sku, Color);
-        this.shlefSatableTax = shlefSatableTax;
+        this.shelfStableTax = shelfStableTax;
 
     }
 
     //getter
-    public double getShlefSatableTax(){return shlefSatableTax;} ;
+    public double getshelfStableTax(){return shelfStableTax;} ;
 
     //setter
-    public void setShlefSatableTax(double fruitPrice){this.shlefSatableTax = fruitPrice;}
+    public void setshelfStableTax(double fruitPrice){this.shelfStableTax = fruitPrice;}
 
     @Override
     public double itemPrice(){
-        return  super.getPrice()*(1 + this.shlefSatableTax);
+        return  super.getPrice()*(1 + this.shelfStableTax);
     }
 
     @Override
