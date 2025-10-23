@@ -1,5 +1,10 @@
 /**
  * @author Tyler Bullard
+ * @author Luis Carmona
+ * @author Michael Sterbal
+ * Date: October 2025
+ * Course section: CSC 331-003
+ * Description:
  * Phone class representing a phone item in the electronics department.
  * Inherits from ElectronicsItem.
  */

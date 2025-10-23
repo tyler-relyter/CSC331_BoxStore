@@ -1,5 +1,8 @@
 /**
- * @author Tyler Bullard
+ * @author Tyler Bullard, Luis Carmona, Michael Sterbal
+ * Date: October 2025
+ * Course section: CSC 331-003
+ * Description:
  * This class represents an electronics item in a retail store.
  * It extends the StoreItem class and adds electronics-specific attributes
  * such as brand, model, and warranty period.

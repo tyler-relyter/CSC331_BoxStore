@@ -1,3 +1,9 @@
+/**
+ * @author Luis Carmona, Tyler Bullard, Michael Sterbal
+ * Date: October 2025
+ * Course section: CSC 331-003
+ */
+
 public class ClothingItem extends StoreItem {
     private double size;
     private String color;

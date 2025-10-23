@@ -1,3 +1,9 @@
+/**
+ * @author Luis Carmona, Tyler Bullard, Michael Sterbal
+ * Date: October 2025
+ * Course section: CSC 331-003
+ */
+
 public abstract class StoreItem {
 
     private String name;
@@ -10,6 +16,14 @@ public abstract class StoreItem {
 
     // Parameterized constructor
 
+    /**
+     * Constructor to initialize a StoreItem with given parameters.
+     * @param name String representing the name of the item.
+     * @param price double representing the price of the item.
+     * @param department String representing the department of the item.
+     * @param stockQuantity int representing the stock quantity of the item.
+     * @param sku String representing the SKU of the item.
+     */
     public StoreItem(String name, double price, String department, int stockQuantity, String sku) {
         this.name = name;
         this.price = price;
@@ -96,6 +110,10 @@ public abstract class StoreItem {
     // Abstract method to calculate item price including tax
     public abstract double itemPrice();
 
+    /**
+     * Add stock to the store item.
+     * @param stock int representing the amount of stock to add.
+     */
     public void addStock(int stock){
         if ( stock >= 0){
             setStockQuantity(getStockQuantity() + stock);
@@ -103,6 +121,11 @@ public abstract class StoreItem {
     }
 
 
+    /**
+     * Remove stock from the store item.
+     * Ensures that stock quantity does not go below zero.
+     * @param stock int representing the amount of stock to remove.
+     */
     public void removeStock(int stock){
         if ( stock > 0){
             int stockQuantity = getStockQuantity() - stock;
