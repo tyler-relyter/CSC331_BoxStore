@@ -8,14 +8,8 @@ public class FoodItem extends StoreItem{
 
     }
 
-    public FoodItem(String name, double price, String department, int stockQuantity, String sku) {
-        super(name, price, department, stockQuantity, sku);
-        this.Color = "";
-    }
-
     //getter
     public String getColor(){return Color;}
-
 
 
     //setter
