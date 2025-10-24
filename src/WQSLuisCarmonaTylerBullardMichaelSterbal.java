@@ -296,7 +296,8 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                 System.out.println("-------------Add Food Items to existing inventory-------------");
                 while (cont) {
                     System.out.print("Name of item do you want to add to inventory?: ");
-                    String name = input.next();
+                    input.nextLine();
+                    String name = input.nextLine();
 
                     System.out.print("Amount you want to add: ");
                     int amount = input.nextInt();
@@ -333,7 +334,8 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                 System.out.println("-------------Add House Hold Items to existing inventory-------------");
                 while (cont) {
                     System.out.print("Name of item do you want to add to inventory?: ");
-                    String name = input.next();
+                    input.nextLine();
+                    String name = input.nextLine();
 
                     System.out.print("Amount you want to add: ");
                     int amount = input.nextInt();
@@ -351,10 +353,11 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                     if (!found) {
                         System.out.println("Item not found in inventory. Cannot add stock.");
                     }
+
                     displayItems(2);
                     System.out.print("Add another item? (y/n): ");
                     if (input.next().equalsIgnoreCase("n")) {
-                        System.out.println("--------UPDATED FOOD INVENTORY------------");
+                        System.out.println("--------UPDATED HOUSEHOLD INVENTORY------------");
                         for (StoreItem currentItem : newItems) {
                             if (currentItem instanceof HouseHoldItem) {
                                 System.out.printf("%s: %d%n", currentItem.getName(), currentItem.getStockQuantity());
@@ -364,12 +367,13 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                         cont = false;
                     }
                 }
-                break;
+
             case 3:
                 displayItems(3);
                 System.out.println("-------------Add Electronic Items to existing inventory-------------");
                 while (cont) {
                     System.out.print("Name of item do you want to add to inventory?: ");
+                    input.nextLine();
                     String name = input.nextLine();
                     System.out.print("Amount you want to add: ");
                     int amount = input.nextInt();
@@ -406,7 +410,8 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                 System.out.println("-------------Add clothing Items to existing inventory-------------");
                 while (cont) {
                     System.out.print("Name of item do you want to add to inventory?: ");
-                    String name = input.next();
+                    input.nextLine();
+                    String name = input.nextLine();
 
                     System.out.print("Amount you want to add: ");
                     int amount = input.nextInt();
@@ -531,7 +536,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                     System.out.print("SKU: ");
                     String hsku = input.nextLine();
                     if (hc == 1) {
-                        System.out.print("Material: ");
+                        System.out.print("Type: ");
                         String material = input.nextLine();
                         System.out.print("Scent: ");
                         String scent = input.nextLine();
@@ -557,7 +562,6 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                     break;
 
                 case 3:
-                    System.out.println();
                     System.out.println("Electronics types:");
                     System.out.println("1.) Laptop");
                     System.out.println("2.) Phone");
