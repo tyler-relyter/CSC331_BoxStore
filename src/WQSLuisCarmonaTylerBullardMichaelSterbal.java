@@ -200,25 +200,25 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
     public static void displayItems(int inventoryChoice){
         // Print formatted lists for each department based on inventoryChoice
         if (inventoryChoice == 1) {
-            System.out.println("+--------------------------------Available Food Items Inventories--------------------------------+");
-            System.out.println("Name              |Department     |Stock          |SKU            |Color           |Price           |");
-            System.out.println("+-----------------+---------------+---------------+---------------+----------------+----------------+");
+            System.out.println("+--------------------------------Available Food Items Inventories----------------------------------+");
+            System.out.println("Name              |Department     |Stock          |SKU            |Color           |Price          |");
+            System.out.println("+-----------------+---------------+---------------+---------------+----------------+---------------+");
             for (StoreItem currentItem : newItems) {
                 if (currentItem instanceof FoodItem) {
                     System.out.println(currentItem);
-                    System.out.println("+-----------------+---------------+---------------+---------------+----------------+----------------+");
+                    System.out.println("+-----------------+---------------+---------------+---------------+----------------+---------------+");
                 }
             }
         }
 
         if (inventoryChoice == 2) {
-            System.out.println("+--------------------------------Available House Hold Items Inventories------------------------------------------+");
-            System.out.println("Name           |Department     |Stock          |SKU            |Color           |Scent          |Price           |");
-            System.out.println("+--------------+---------------+---------------+---------------+----------------+---------------+----------------+");
+            System.out.println("+--------------------------------Available House Hold Items Inventories--------------------------------------------+");
+            System.out.println("Name           |Department     |Stock          |SKU            |Color           |Scent          |Price             |");
+            System.out.println("+--------------+---------------+---------------+---------------+----------------+---------------+------------------+");
             for (StoreItem currentItem : newItems) {
                 if (currentItem instanceof HouseHoldItem) {
                     System.out.println(currentItem);
-                    System.out.println("+--------------+---------------+---------------+---------------+----------------+---------------+----------------+");
+                    System.out.println("+--------------+---------------+---------------+---------------+----------------+---------------+------------------+");
                 }
             }
         }
