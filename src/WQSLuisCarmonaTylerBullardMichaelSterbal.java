@@ -201,12 +201,12 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
         // Print formatted lists for each department based on inventoryChoice
         if (inventoryChoice == 1) {
             System.out.println("+--------------------------------Available Food Items Inventories--------------------------------+");
-            System.out.println("Name           |Department     |Stock          |SKU            |Color           |Price           |");
-            System.out.println("+--------------+---------------+---------------+---------------+----------------+----------------+");
+            System.out.println("Name              |Department     |Stock          |SKU            |Color           |Price           |");
+            System.out.println("+-----------------+---------------+---------------+---------------+----------------+----------------+");
             for (StoreItem currentItem : newItems) {
                 if (currentItem instanceof FoodItem) {
                     System.out.println(currentItem);
-                    System.out.println("+--------------+---------------+---------------+---------------+----------------+----------------+");
+                    System.out.println("+-----------------+---------------+---------------+---------------+----------------+----------------+");
                 }
             }
         }
@@ -225,7 +225,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
 
         if (inventoryChoice == 3) {
             System.out.println();
-            System.out.println("+--------------------------------Available Electronic Items Inventories------------------------------------------+");
+            System.out.println("+---------------------------------------------------------------------------------------------Available Electronic Items Inventories--------------------------------------------------------------------------------------------+");
             System.out.println("Name              |Department     |Stock          |SKU            |Brand        |Model          |Warranty in Months|Processor    |Ram          |Storage in Gigs|Screen Size  |OS           |Screen Type|Smart     |Price        |");
             System.out.println("+-----------------+---------------+---------------+---------------+-------------+---------------+------------------+-------------+-------------+---------------+-------------+-------------+-----------+----------+-------------+");
             for (StoreItem currentItem : newItems) {
@@ -237,11 +237,14 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
         }
 
         if (inventoryChoice == 4) {
-            System.out.println("-------------Available Clothing Items Inventories------------");
+            System.out.println();
+            System.out.println("-----------------------------------------------------------------------Available Clothing Items Inventories-----------------------------------------------------------------------");
+            System.out.println("Name              |Department     |Stock          |SKU            |Size         |Color          |Material       |Sleeve         |Shoe Type      |Water Proof    |Price           |");
+            System.out.println("+-----------------+---------------+---------------+---------------+-------------+---------------+---------------+---------------+---------------+---------------+----------------+");
             for (StoreItem currentItem : newItems) {
                 if (currentItem instanceof ClothingItem) {
-                    System.out.print(currentItem);
-                    System.out.println();
+                    System.out.println(currentItem);
+                    System.out.println("+-----------------+---------------+---------------+---------------+-------------+---------------+---------------+---------------+---------------+---------------+----------------+");
                 }
             }
         }
@@ -289,6 +292,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
 
         switch(options) {
             case 1:
+                displayItems(1);
                 System.out.println("-------------Add Food Items to existing inventory-------------");
                 while (cont) {
                     System.out.print("Name of item do you want to add to inventory?: ");
@@ -324,6 +328,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                 }
                 break;
             case 2:
+                displayItems(2);
                 System.out.println("-------------Add House Hold Items to existing inventory-------------");
                 while (cont) {
                     System.out.print("Name of item do you want to add to inventory?: ");
@@ -359,6 +364,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                 }
                 break;
             case 3:
+                displayItems(3);
                 System.out.println("-------------Add Electronic Items to existing inventory-------------");
                 while (cont) {
                     System.out.print("Name of item do you want to add to inventory?: ");
@@ -393,7 +399,8 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                 }
                 break;
             case 4:
-                System.out.println("-------------Add House Hold Items to existing inventory-------------");
+                displayItems(4);
+                System.out.println("-------------Add clothing Items to existing inventory-------------");
                 while (cont) {
                     System.out.print("Name of item do you want to add to inventory?: ");
                     String name = input.next();

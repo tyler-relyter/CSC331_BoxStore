@@ -98,12 +98,11 @@ public class ClothingItem extends StoreItem {
     }
 
     @Override
-    public double itemPrice(){return super.getPrice() * (1 + getCTAX());}
+    public double itemPrice(){return super.getPrice();}
 
     // Override toString method to include clothing-specific details
     @Override
     public String toString() {
-        return String.format("%s%nSize: %s%nColor: %s%nMaterial: %s",
-                super.toString(), this.size, this.color, this.material);
+        return String.format("%s%-13.2f|%-15s|%-15s", super.toString(),getSize(),getColor(),getMaterial());
     }
 }

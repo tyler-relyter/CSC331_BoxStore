@@ -47,7 +47,7 @@ public class Shoe extends ClothingItem{
     @Override
     public String toString() {
 
-        return String.format("%s, Shoe Type: %s", super.toString(), shoeType);
+        return String.format("%s|%-15s|%-15s|%-15s|$%-15.2f|", super.toString(),"",getShoeType(),"",itemPrice());
 
     }
 }

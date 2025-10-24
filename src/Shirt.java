@@ -1,5 +1,5 @@
 public class Shirt extends ClothingItem{
-    private String sleeveLength; // e.g., short, long, sleeveless
+    private String sleeveLength;// e.g., short, long, sleeveless
 
     // Constructor
 
@@ -37,13 +37,14 @@ public class Shirt extends ClothingItem{
      */
     public void setSleeveLength(String sleeveLength) { this.sleeveLength = sleeveLength; }
 
-
+    @Override
+    public double itemPrice(){return super.getPrice()* (1 + getCTAX());}
 
     // Override toString method to include shirt-specific details
     @Override
     public String toString() {
 
-        return String.format("%s, Sleeve Length: %s", super.toString(), sleeveLength);
+        return String.format("%s|%-15s|%-15s|%-15s|$%-15.2f|", super.toString(), getSleeveLength(),"","",itemPrice());
 
     }
 }

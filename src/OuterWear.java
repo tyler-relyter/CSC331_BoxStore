@@ -52,14 +52,14 @@ public class OuterWear extends ClothingItem{
     public void setWaterproof(boolean isWaterproof) { this.isWaterproof = isWaterproof; }
 
     @Override
-    public double itemPrice(){return super.getPrice() * (1 + super.getCTAX());}
+    public double itemPrice(){return super.getPrice()* (1 + getCTAX());}
 
 
     // Override toString method to include outerwear-specific details
     @Override
     public String toString() {
 
-        return String.format("%s%nWaterproof: %s", super.toString(), isWaterproof ? "Yes" : "No");
+        return String.format("%s|%-15s|%-15s|%-15s|$%-15.2f|", super.toString(),"","",isWaterproof(),itemPrice());
 
     }
 
