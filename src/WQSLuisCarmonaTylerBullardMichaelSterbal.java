@@ -310,6 +310,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                     if (!found) {
                         System.out.println("Item not found in inventory. Cannot add stock.");
                     }
+                    displayItems(1);
                     System.out.print("Add another item? (y/n): ");
                     if (input.next().equalsIgnoreCase("n")) {
                         System.out.println("--------UPDATED FOOD INVENTORY------------");
@@ -345,6 +346,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                     if (!found) {
                         System.out.println("Item not found in inventory. Cannot add stock.");
                     }
+                    displayItems(2);
                     System.out.print("Add another item? (y/n): ");
                     if (input.next().equalsIgnoreCase("n")) {
                         System.out.println("--------UPDATED FOOD INVENTORY------------");
@@ -379,6 +381,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                     if (!found) {
                         System.out.println("Item not found in inventory. Cannot add electronics.");
                     }
+                    displayItems(3);
                     System.out.print("Add another item? (y/n): ");
                     if (input.next().equalsIgnoreCase("n")) {
                         System.out.println("--------UPDATED ELECTRONICS INVENTORY------------");
@@ -413,6 +416,7 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                     if (!found) {
                         System.out.println("Item not found in inventory. Cannot add clothing.");
                     }
+                    displayItems(4);
                     System.out.print("Add another item? (y/n): ");
                     if (input.next().equalsIgnoreCase("n")) {
                         System.out.println("--------UPDATED CLOTHING INVENTORY------------");
