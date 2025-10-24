@@ -340,8 +340,8 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
                     boolean found = false;
 
                     for (StoreItem item : newItems) {
-                        if (item instanceof ClothingItem foodItem && item.getName().equalsIgnoreCase(name)) {
-                            foodItem.addStock(amount);
+                        if (item instanceof HouseHoldItem houseItem && item.getName().equalsIgnoreCase(name)) {
+                            houseItem.addStock(amount);
                             found = true;
                             break;
                         }
