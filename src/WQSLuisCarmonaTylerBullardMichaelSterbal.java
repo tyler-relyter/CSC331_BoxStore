@@ -224,11 +224,14 @@ public class WQSLuisCarmonaTylerBullardMichaelSterbal {
         }
 
         if (inventoryChoice == 3) {
-            System.out.println("-------------Available Electronic Items Inventories------------");
+            System.out.println();
+            System.out.println("+--------------------------------Available Electronic Items Inventories------------------------------------------+");
+            System.out.println("Name              |Department     |Stock          |SKU            |Brand        |Model          |Warranty in Months|Processor    |Ram          |Storage in Gigs|Screen Size  |OS           |Screen Type|Smart     |Price        |");
+            System.out.println("+-----------------+---------------+---------------+---------------+-------------+---------------+------------------+-------------+-------------+---------------+-------------+-------------+-----------+----------+-------------+");
             for (StoreItem currentItem : newItems) {
                 if (currentItem instanceof ElectronicsItem) {
-                    System.out.print(currentItem);
-                    System.out.println();
+                    System.out.println(currentItem);
+                    System.out.println("+-----------------+---------------+---------------+---------------+-------------+---------------+------------------+-------------+-------------+---------------+-------------+-------------+-----------+----------+-------------+");
                 }
             }
         }

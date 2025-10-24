@@ -104,7 +104,7 @@ public class TV extends ElectronicsItem {
 
     @Override
     public String toString() {
-        return String.format("%s%nScreen Type: %s%nScreen Size: %.1f inches%nSmart TV: %b%n",
-                             super.toString(), this.screenType, this.screenSize, this.isSmartTV);
+        return String.format("%s%-13s|%-13s|%-15s|%-13f|%-13s|%-10s|%-10s|$%-13.2f|",
+                super.toString(),"","","",getScreenSize(),"",getScreenType(), isSmartTV(),itemPrice());
     }
 }

@@ -147,7 +147,7 @@ public abstract class StoreItem {
 
     @Override
     public String toString() {
-        return String.format("Name: %s%nDepartment: %s%nQuantity: %d%nSKU: %s", this.name, this.department, this.stockQuantity, this.sku);
+        return String.format("%-18s|%-15s|%-15d|%-15s|", getName(),getDepartment(),getStockQuantity(),getSku());
     }
 }
 
